@@ -1,301 +1,1755 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>OBLIVION FORGE</title>
-<link rel="icon" href="data:image/jpeg;base64,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">
+<title>Oblivion Forge — AI Research &amp; Engineering Workspace</title>
+<meta name="description" content="Oblivion Forge: a research and engineering workspace with AI chat, code, research notes and an interactive knowledge-graph engine.">
+<meta id="themeColorMeta" name="theme-color" content="#D97757">
+<link id="manifestLink" rel="manifest">
+<link id="faviconLink" rel="icon" type="image/svg+xml">
 <style>
-:root{--bg:#f3ebd8;--panel:#ebe2cc;--ink:#2e2d2f;--mute:#76705f;--line:#d3c8ac;--acc:#e0603f;--acc2:#3a393c;--code:#e4d9bf}
-:root[data-theme=dark]{--bg:#1d1c1e;--panel:#252427;--ink:#ece4d0;--mute:#9b9482;--line:#38363a;--acc:#ee7452;--acc2:#cfc6b0;--code:#2d2b2f}
-*{box-sizing:border-box}html,body{height:100%;margin:0}
-body{background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,sans-serif;display:grid;grid-template-columns:260px 1fr 280px;overflow:hidden}
-h1,h2,h3{font-family:"Iowan Old Style",Georgia,serif;font-weight:600;margin:0}
-button,input,select,textarea{font:inherit;color:inherit}
-button{background:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer}
-button:hover{border-color:var(--acc)}button.p{background:var(--acc);border-color:var(--acc);color:#fff}
-:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
-input,select,textarea{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 9px;width:100%}
-aside{background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;padding-top:env(safe-area-inset-top)}
-.brand{display:flex;gap:10px;align-items:center;padding:14px}.brand img{width:40px;height:40px;border-radius:6px}
-.brand b{font-family:Georgia,serif;letter-spacing:.04em;display:block;line-height:1.1}.brand small{color:var(--mute)}
-#list{flex:1;overflow:auto;padding:0 8px}
-.it{display:flex;justify-content:space-between;padding:7px 9px;border-radius:6px;cursor:pointer}.it:hover,.it.on{background:var(--bg)}
-.it span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.side-foot{padding:10px;border-top:1px solid var(--line);display:grid;gap:6px;font-size:13px}
-.side-foot a{color:var(--mute);text-decoration:none}.side-foot a:hover{color:var(--acc)}
-main{display:flex;flex-direction:column;min-width:0;min-height:0;padding-top:env(safe-area-inset-top)}
-header{display:flex;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
-header .sp{flex:1}.tabs button{border:0;border-bottom:2px solid transparent;border-radius:0}.tabs button.on{border-color:var(--acc)}
-.badge{font-size:12px;color:var(--mute);border:1px solid var(--line);border-radius:99px;padding:2px 9px}
-.view{flex:1;min-height:0;display:none;flex-direction:column}.view.on{display:flex}
-#msgs{flex:1;overflow:auto;padding:18px 14px}
-.m{max-width:760px;margin:0 auto 18px}.m .r{font-size:12px;color:var(--mute);margin-bottom:2px}
-.m.user .b{background:var(--panel);padding:9px 12px;border-radius:8px}.m.err .b{color:#c0392b}
-.b pre{background:var(--code);padding:10px;border-radius:6px;overflow:auto}.b code{background:var(--code);padding:1px 4px;border-radius:3px}.b pre code{padding:0}
-.acts{display:flex;gap:6px;margin-top:4px}.acts button{font-size:12px;padding:2px 8px}
-form{display:flex;gap:8px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
-textarea{resize:none;max-height:140px}
-.empty{max-width:520px;margin:12vh auto;text-align:center;color:var(--mute)}.empty img{width:120px;border-radius:10px}
-#gwrap{flex:1;position:relative;min-height:0}canvas{width:100%;height:100%;display:block;touch-action:none}
-.tools{display:flex;gap:8px;padding:8px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}.tools input{max-width:200px}
-.insp{background:var(--panel);border-left:1px solid var(--line);padding:14px;overflow:auto;font-size:13px;padding-top:calc(14px + env(safe-area-inset-top))}
-.insp h3{margin:10px 0 4px;font-size:15px}.insp p{margin:3px 0;color:var(--mute)}
-dialog{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;max-width:520px;width:92vw}
-dialog label{display:block;margin:10px 0 3px;font-size:13px;color:var(--mute)}.warn{font-size:12px;color:var(--mute);background:var(--panel);padding:8px;border-radius:6px;margin-top:8px}
-#diag{white-space:pre-wrap;font-size:12px;margin-top:8px}
-#menu{display:none}
-@media(max-width:1000px){body{grid-template-columns:240px 1fr}.insp{display:none}}
-@media(max-width:700px){body{grid-template-columns:1fr}#menu{display:inline-block}
-aside{position:fixed;inset:0 25% 0 0;z-index:5;transform:translateX(-102%);transition:transform .2s}aside.open{transform:none}
-.tabs button{padding:6px 7px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* =========================================================
+   OBLIVION FORGE — CORE STYLES
+   ========================================================= */
+:root{
+  --bg:#F6F1E8; --bg-elevated:#FFFFFF; --panel:#FBF8F2; --panel-2:#F1EADC;
+  --border:#E5DCCB; --border-strong:#D8CBB2;
+  --text:#2A2521; --text-muted:#79705F; --text-faint:#A69C87;
+  --accent:#D97757; --accent-hover:#C2654A; --accent-soft:rgba(217,119,87,.13);
+  --accent-ring:rgba(217,119,87,.35);
+  --code-bg:#211F1D; --code-text:#F2EEE6; --code-border:#36322E;
+  --success:#4E8B6D; --danger:#C04B3D; --warn:#B8873A;
+  --shadow:0 1px 2px rgba(30,25,15,.06), 0 8px 24px -12px rgba(30,25,15,.18);
+  --radius:12px; --radius-sm:8px; --radius-lg:18px;
+  --font-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Roboto Mono', monospace;
+}
+html[data-theme="dark"]{
+  --bg:#1B1917; --bg-elevated:#232019; --panel:#201D19; --panel-2:#2A2621;
+  --border:#3A352D; --border-strong:#4A4338;
+  --text:#EEE7DA; --text-muted:#A79C89; --text-faint:#75695A;
+  --accent:#E08A68; --accent-hover:#EA9A79; --accent-soft:rgba(224,138,104,.16);
+  --accent-ring:rgba(224,138,104,.4);
+  --code-bg:#141311; --code-text:#ECE6DC; --code-border:#36322E;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0; background:var(--bg); color:var(--text); font-family:var(--font-sans);
+  font-size:14.5px; line-height:1.55; -webkit-font-smoothing:antialiased; overflow:hidden;
+}
+h1,h2,h3,.serif{font-family:var(--font-serif);}
+button{font-family:inherit;}
+::selection{background:var(--accent-soft);}
+a{color:var(--accent);}
+*:focus-visible{outline:2px solid var(--accent); outline-offset:1px;}
+
+/* Scrollbars */
+*::-webkit-scrollbar{width:9px; height:9px;}
+*::-webkit-scrollbar-track{background:transparent;}
+*::-webkit-scrollbar-thumb{background:var(--border-strong); border-radius:8px;}
+
+/* Layout shell */
+#app{display:flex; height:100vh; height:100dvh; width:100vw; overflow:hidden;}
+
+/* ---------- Sidebar ---------- */
+#sidebar{
+  width:272px; min-width:272px; background:var(--panel); border-right:1px solid var(--border);
+  display:flex; flex-direction:column; transition:margin-left .22s ease, width .22s ease;
+  position:relative; z-index:40;
+}
+#sidebar.collapsed{ margin-left:-272px; }
+.brand{
+  display:flex; align-items:center; gap:10px; padding:16px 16px 14px; border-bottom:1px solid var(--border);
+}
+.brand-mark{width:30px; height:30px; flex:none;}
+.brand-name{font-family:var(--font-serif); font-size:16.5px; letter-spacing:.3px; font-weight:700;}
+.brand-sub{font-size:10.5px; color:var(--text-faint); letter-spacing:.14em; text-transform:uppercase; margin-top:-2px;}
+.sidebar-scroll{flex:1; overflow-y:auto; padding:10px 10px 14px;}
+.side-section{margin-bottom:16px;}
+.side-section-head{
+  display:flex; align-items:center; justify-content:space-between; padding:6px 8px 6px;
+  font-size:11px; text-transform:uppercase; letter-spacing:.11em; color:var(--text-faint); font-weight:600;
+}
+.icon-btn{
+  display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:7px;
+  border:1px solid transparent; background:transparent; color:var(--text-muted); cursor:pointer; transition:.15s;
+}
+.icon-btn:hover{background:var(--panel-2); color:var(--text); border-color:var(--border);}
+.list-item{
+  display:flex; align-items:center; gap:8px; padding:7px 9px; border-radius:8px; cursor:pointer;
+  color:var(--text-muted); font-size:13.2px; margin-bottom:2px; border:1px solid transparent; position:relative;
+}
+.list-item:hover{background:var(--panel-2); color:var(--text);}
+.list-item.active{background:var(--accent-soft); color:var(--accent-hover); border-color:var(--accent-ring); font-weight:600;}
+.list-item .li-name{flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.list-item .li-actions{display:none; gap:2px;}
+.list-item:hover .li-actions{display:flex;}
+.li-dot{width:6px; height:6px; border-radius:50%; background:var(--text-faint); flex:none;}
+.empty-hint{font-size:12px; color:var(--text-faint); padding:8px 9px; line-height:1.5;}
+.sidebar-foot{border-top:1px solid var(--border); padding:10px; display:flex; flex-direction:column; gap:6px;}
+.foot-row{display:flex; align-items:center; gap:8px;}
+.status-pill{
+  display:inline-flex; align-items:center; gap:6px; font-size:11.5px; padding:4px 9px; border-radius:999px;
+  border:1px solid var(--border); background:var(--bg-elevated); color:var(--text-muted);
+}
+.status-dot{width:7px; height:7px; border-radius:50%; background:var(--text-faint);}
+.status-dot.ok{background:var(--success);} .status-dot.bad{background:var(--danger);} .status-dot.warn{background:var(--warn);}
+
+/* ---------- Main column ---------- */
+#main-col{flex:1; display:flex; flex-direction:column; min-width:0; background:var(--bg);}
+#topbar{
+  height:56px; min-height:56px; border-bottom:1px solid var(--border); display:flex; align-items:center;
+  gap:10px; padding:0 14px; background:var(--bg-elevated);
+}
+.tab-switch{display:flex; background:var(--panel-2); border:1px solid var(--border); border-radius:10px; padding:3px; gap:2px;}
+.tab-btn{
+  border:none; background:transparent; padding:6px 13px; border-radius:7px; font-size:13px; font-weight:600;
+  color:var(--text-muted); cursor:pointer; transition:.15s; display:flex; align-items:center; gap:6px;
+}
+.tab-btn.active{background:var(--bg-elevated); color:var(--accent-hover); box-shadow:var(--shadow);}
+.topbar-spacer{flex:1;}
+.select{
+  background:var(--bg-elevated); border:1px solid var(--border); border-radius:8px; color:var(--text);
+  padding:6px 10px; font-size:12.5px; cursor:pointer; max-width:160px;
+}
+.btn{
+  display:inline-flex; align-items:center; gap:6px; border-radius:9px; border:1px solid var(--border);
+  background:var(--bg-elevated); color:var(--text); padding:7px 13px; font-size:13px; cursor:pointer; transition:.15s; font-weight:600;
+}
+.btn:hover{border-color:var(--border-strong); background:var(--panel-2);}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+.btn.primary:hover{background:var(--accent-hover); border-color:var(--accent-hover);}
+.btn.ghost{background:transparent; border-color:transparent;}
+.btn.ghost:hover{background:var(--panel-2);}
+.btn.sm{padding:5px 9px; font-size:12px; border-radius:7px;}
+.btn:disabled{opacity:.45; cursor:not-allowed;}
+.btn svg{width:15px; height:15px;}
+
+/* ---------- Workspace / panels ---------- */
+#workspace{flex:1; display:flex; min-height:0;}
+.view{flex:1; display:none; min-width:0; flex-direction:column; min-height:0;}
+.view.active{display:flex;}
+
+/* Chat */
+#chatScroll{flex:1; overflow-y:auto; padding:22px 0 10px;}
+.msg-row{max-width:760px; margin:0 auto 22px; padding:0 20px;}
+.msg-role{font-size:11.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--text-faint); margin-bottom:6px; font-weight:700; display:flex; align-items:center; gap:8px;}
+.msg-role.demo::after{content:"DEMO"; background:var(--warn); color:#2a2521; font-size:9px; padding:1px 6px; border-radius:999px; letter-spacing:.06em;}
+.msg-body{font-size:14.5px; color:var(--text); line-height:1.65;}
+.msg-body p{margin:0 0 10px;}
+.msg-body ul,.msg-body ol{margin:0 0 10px; padding-left:22px;}
+.msg-body h1,.msg-body h2,.msg-body h3{font-family:var(--font-serif); margin:16px 0 8px;}
+.msg-body code{background:var(--panel-2); padding:1px 5px; border-radius:5px; font-family:var(--font-mono); font-size:12.8px;}
+.code-block{
+  background:var(--code-bg); color:var(--code-text); border:1px solid var(--code-border); border-radius:10px;
+  margin:10px 0; overflow:hidden; font-family:var(--font-mono); font-size:12.8px;
+}
+.code-block-head{display:flex; align-items:center; justify-content:space-between; padding:7px 12px; background:#2a2621; border-bottom:1px solid var(--code-border);}
+.code-block-head span{color:#b8ad98; font-size:11px; text-transform:uppercase; letter-spacing:.08em;}
+.code-block pre{margin:0; padding:12px 14px; overflow-x:auto; white-space:pre;}
+.code-block code{background:none; padding:0; color:inherit;}
+.msg-actions{display:flex; gap:6px; margin-top:8px;}
+.user-bubble{background:var(--panel-2); border:1px solid var(--border); border-radius:var(--radius); padding:12px 15px; display:inline-block; max-width:100%;}
+.chat-inputbar{border-top:1px solid var(--border); background:var(--bg-elevated); padding:12px 20px 16px;}
+.chat-input-wrap{max-width:760px; margin:0 auto; border:1px solid var(--border); border-radius:var(--radius-lg); background:var(--panel); padding:8px 10px 8px 16px; display:flex; align-items:flex-end; gap:8px; box-shadow:var(--shadow);}
+#chatInput{flex:1; border:none; background:transparent; resize:none; max-height:180px; font-size:14px; color:var(--text); font-family:inherit; padding:8px 0; outline:none;}
+.hint-row{max-width:760px; margin:6px auto 0; display:flex; justify-content:space-between; font-size:11px; color:var(--text-faint); padding:0 4px;}
+
+/* Empty state */
+.empty-state{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:var(--text-muted); gap:10px; padding:30px;}
+.empty-state .es-icon{width:54px; height:54px; color:var(--accent); opacity:.85;}
+.empty-state h3{font-family:var(--font-serif); color:var(--text); font-size:19px; margin:4px 0 0;}
+.empty-state p{max-width:420px; font-size:13px; margin:0;}
+
+/* Research / Code views */
+.pane-head{display:flex; align-items:center; gap:10px; padding:12px 18px; border-bottom:1px solid var(--border); background:var(--bg-elevated);}
+.pane-body{flex:1; overflow:auto; padding:18px;}
+#researchNotes, #codeEditor{
+  width:100%; height:100%; min-height:360px; border-radius:var(--radius); border:1px solid var(--border);
+  padding:16px; font-size:13.6px; resize:none; outline:none;
+}
+#researchNotes{background:var(--panel); color:var(--text); font-family:var(--font-sans); line-height:1.7;}
+#codeEditor{background:var(--code-bg); color:var(--code-text); font-family:var(--font-mono); line-height:1.6;}
+
+/* Graph view */
+#graphView{position:relative;}
+.graph-toolbar{display:flex; align-items:center; gap:8px; padding:10px 14px; border-bottom:1px solid var(--border); background:var(--bg-elevated); flex-wrap:wrap;}
+.graph-toolbar .divider{width:1px; height:22px; background:var(--border); margin:0 2px;}
+#graphSearch{border:1px solid var(--border); background:var(--bg-elevated); border-radius:8px; padding:6px 10px; font-size:12.5px; width:160px; color:var(--text);}
+.graph-canvas-wrap{flex:1; position:relative; overflow:hidden; background:
+   radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 1px) 0 0/22px 22px, var(--bg);}
+#graphSvg{width:100%; height:100%; cursor:grab; display:block;}
+#graphSvg.panning{cursor:grabbing;}
+.gnode circle{stroke-width:2.5px; cursor:pointer;}
+.gnode text{font-family:var(--font-sans); font-size:11px; fill:var(--text); pointer-events:none; font-weight:600;}
+.gnode.dimmed{opacity:.18;}
+.gnode.selected circle{stroke:var(--accent) !important; stroke-width:3.5px;}
+.gedge line{stroke:var(--border-strong); stroke-width:1.6px;}
+.gedge.dimmed line{opacity:.1;}
+.gedge text{font-size:9.5px; fill:var(--text-muted); font-family:var(--font-sans);}
+.graph-legend{
+  position:absolute; left:14px; bottom:14px; background:var(--bg-elevated); border:1px solid var(--border);
+  border-radius:10px; padding:10px 12px; font-size:11.5px; box-shadow:var(--shadow); max-width:220px;
+}
+.legend-row{display:flex; align-items:center; gap:7px; margin-bottom:5px; cursor:pointer;}
+.legend-swatch{width:10px; height:10px; border-radius:50%; flex:none;}
+.graph-empty{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;}
+
+/* ---------- Inspector ---------- */
+#inspector{
+  width:300px; min-width:300px; border-left:1px solid var(--border); background:var(--panel);
+  display:flex; flex-direction:column; transition:margin-right .22s ease;
+}
+#inspector.collapsed{margin-right:-300px;}
+.inspector-tabs{display:flex; border-bottom:1px solid var(--border);}
+.insp-tab{flex:1; padding:11px 0; text-align:center; font-size:12px; font-weight:700; color:var(--text-muted); cursor:pointer; border-bottom:2px solid transparent;}
+.insp-tab.active{color:var(--accent-hover); border-color:var(--accent);}
+.insp-body{flex:1; overflow-y:auto; padding:14px 16px;}
+.field-label{font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint); margin:12px 0 5px; font-weight:700;}
+.field-label:first-child{margin-top:0;}
+.ta, .ti{width:100%; border:1px solid var(--border); background:var(--bg-elevated); border-radius:8px; padding:7px 9px; font-size:13px; color:var(--text); font-family:inherit;}
+.ta{resize:vertical; min-height:60px;}
+.artifact-item{border:1px solid var(--border); border-radius:9px; padding:9px 10px; margin-bottom:8px; background:var(--bg-elevated);}
+.artifact-item .ai-name{font-size:12.5px; font-weight:700;}
+.artifact-item .ai-meta{font-size:11px; color:var(--text-faint); margin:2px 0 6px;}
+
+/* ---------- Modals ---------- */
+.modal-overlay{position:fixed; inset:0; background:rgba(20,17,14,.5); display:flex; align-items:center; justify-content:center; z-index:200; backdrop-filter:blur(2px);}
+.modal-overlay.hidden{display:none;}
+.modal{background:var(--bg-elevated); border-radius:var(--radius-lg); width:560px; max-width:92vw; max-height:88vh; overflow:auto; box-shadow:0 20px 60px -20px rgba(0,0,0,.4); border:1px solid var(--border);}
+.modal-head{display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid var(--border);}
+.modal-head h3{margin:0; font-size:17px;}
+.modal-body{padding:18px 20px;}
+.modal-foot{display:flex; justify-content:flex-end; gap:8px; padding:14px 20px; border-top:1px solid var(--border);}
+.settings-section{margin-bottom:20px;}
+.settings-section h4{font-size:12px; text-transform:uppercase; letter-spacing:.09em; color:var(--text-faint); margin:0 0 10px;}
+.row{display:flex; gap:10px; align-items:center; margin-bottom:10px;}
+.row label{flex:0 0 120px; font-size:12.5px; color:var(--text-muted);}
+.row input[type=text], .row input[type=number], .row input[type=password], .row select{
+  flex:1; border:1px solid var(--border); background:var(--bg); border-radius:8px; padding:7px 9px; font-size:13px; color:var(--text);
+}
+.note{font-size:11.5px; color:var(--text-faint); line-height:1.5; margin-top:4px;}
+.seg{display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden;}
+.seg button{flex:1; border:none; background:var(--bg-elevated); padding:7px 0; font-size:12.5px; cursor:pointer; color:var(--text-muted);}
+.seg button.active{background:var(--accent-soft); color:var(--accent-hover); font-weight:700;}
+
+/* Toast */
+#toastHost{position:fixed; right:18px; bottom:18px; z-index:400; display:flex; flex-direction:column; gap:8px; align-items:flex-end;}
+.toast{background:var(--bg-elevated); border:1px solid var(--border); box-shadow:var(--shadow); border-radius:10px; padding:10px 14px; font-size:12.8px; max-width:320px; display:flex; gap:8px; align-items:flex-start;}
+.toast.err{border-color:var(--danger);}
+.toast.ok{border-color:var(--success);}
+
+/* Mobile */
+.mobile-only{display:none;}
+@media (max-width:860px){
+  .mobile-only{display:inline-flex;}
+  #sidebar{position:fixed; top:0; bottom:0; left:0; height:100%; box-shadow:0 0 40px rgba(0,0,0,.25);}
+  #sidebar.collapsed{margin-left:-272px;}
+  #sidebar:not(.collapsed){margin-left:0;}
+  #inspector{position:fixed; top:56px; bottom:0; right:0; height:calc(100% - 56px); z-index:50;}
+  #inspector.collapsed{margin-right:-300px;}
+  .tab-switch .tab-label{display:none;}
+  .select{max-width:96px;}
+  #mobileScrim{position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:30; display:none;}
+  #mobileScrim.show{display:block;}
+  .msg-row{padding:0 12px;}
+}
+@media (max-width:860px){ #sidebar{z-index:45;} }
+.hidden{display:none !important;}
+svg.spin{animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
 </style>
 </head>
 <body>
-<aside id="side">
-  <div class="brand"><img src="data:image/jpeg;base64,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" alt="Oblivion logo"><div><b>OBLIVION FORGE</b><small>AI research workspace</small></div></div>
-  <div style="padding:0 10px 10px"><button class="p" id="newS" style="width:100%">New session</button></div>
-  <div style="padding:0 10px 8px"><input id="q" placeholder="Search sessions" aria-label="Search sessions"></div>
-  <div id="list"></div>
-  <div class="side-foot">
-    <a href="https://shokribardiya.github.io/Oblivions0.github.io/" target="_blank" rel="noopener">OBLIVION home</a>
-    <a href="https://shokribardiya.github.io/Oblivions0.github.io/" target="_blank" rel="noopener">Sentinel, ANGRA, Research, Developer</a>
-    <button id="cfgB">Provider settings</button>
-  </div>
-</aside>
-<main>
-  <header>
-    <button id="menu" aria-label="Open sessions">Menu</button>
-    <div class="tabs"><button data-v="chat" class="on">Chat</button><button data-v="graph">Graph</button></div>
-    <span class="sp"></span><span class="badge" id="priv"></span><button id="th" aria-label="Toggle theme">Theme</button>
-  </header>
-  <section class="view on" id="v-chat">
-    <div id="msgs" aria-live="polite"></div>
-    <form id="f"><textarea id="in" rows="1" placeholder="Ask a research question" aria-label="Message"></textarea>
-      <button type="button" id="stop" hidden>Stop</button><button class="p" id="send">Send</button></form>
-  </section>
-  <section class="view" id="v-graph">
-    <div class="tools"><button class="p" id="gen">Build graph from last answer</button><input id="gs" placeholder="Search nodes" aria-label="Search nodes">
-      <button id="gx">Export JSON</button><span class="badge" id="gst">No graph</span></div>
-    <div id="gwrap"><canvas id="cv"></canvas></div>
-  </section>
-</main>
-<div class="insp" id="insp"><h3>Inspector</h3><p>Select a node in the graph to see its type, evidence and provenance.</p></div>
+<div id="app">
 
-<dialog id="dlg"><h2>Provider settings</h2>
-  <label>Provider</label><select id="prov"><option value="gemini">Google Gemini</option><option value="lm">LM Studio (local)</option></select>
-  <div id="gem">
-    <label>Credential mode</label><select id="cmode"><option value="key">Private key (this browser session only)</option><option value="proxy">Production proxy (server holds the key)</option></select>
-    <label>Gemini API key</label><input id="key" type="password" autocomplete="off" placeholder="Paste key. Kept in sessionStorage only.">
-    <label>Proxy URL (proxy mode)</label><input id="proxy" placeholder="https://your-worker.example.com/gemini">
-    <label>Model</label><input id="gmodel">
-    <label>API</label><select id="gapi"><option value="gc">generateContent streaming (stable)</option><option value="ix">Interactions API (experimental)</option></select>
-    <div class="warn">A key typed here lives in this tab only and is never exported. Browser-side keys are not safe on a shared public deployment: use proxy mode there.</div>
+  <!-- ============ SIDEBAR ============ -->
+  <aside id="sidebar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="21" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M24 7 L24 41 M9 15 L39 33 M9 33 L39 15" stroke="var(--accent)" stroke-width="1.3" opacity="0.45"/>
+        <circle cx="24" cy="24" r="8" fill="var(--accent)"/>
+        <circle cx="24" cy="24" r="8" fill="none" stroke="var(--text)" stroke-opacity="0.15" stroke-width="1"/>
+      </svg>
+      <div>
+        <div class="brand-name">Oblivion Forge</div>
+        <div class="brand-sub">Research Workbench</div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <button class="icon-btn" id="collapseSidebarBtn" title="Collapse sidebar (Ctrl+B)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4v16M4 4h16v16H4z"/></svg>
+      </button>
+    </div>
+    <div class="sidebar-scroll">
+      <div class="side-section">
+        <div class="side-section-head"><span>Projects</span><button class="icon-btn" id="newProjectBtn" title="New project">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+        </button></div>
+        <div id="projectList"></div>
+      </div>
+      <div class="side-section">
+        <div class="side-section-head"><span>Conversations</span><button class="icon-btn" id="newConvBtn" title="New conversation">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+        </button></div>
+        <div id="convList"></div>
+      </div>
+      <div class="side-section">
+        <div class="side-section-head"><span>Saved Graphs</span></div>
+        <div id="graphList"></div>
+      </div>
+    </div>
+    <div class="sidebar-foot">
+      <div class="foot-row">
+        <span class="status-pill" id="providerStatusPill"><span class="status-dot" id="providerStatusDot"></span><span id="providerStatusText">No provider</span></span>
+        <div class="topbar-spacer"></div>
+        <button class="icon-btn" id="openSettingsBtn" title="Settings (Ctrl+,)">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 005 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09A1.65 1.65 0 0015 4.6a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09A1.65 1.65 0 0019.4 15z"/></svg>
+        </button>
+      </div>
+      <button class="btn sm" id="installBtn" style="display:none;width:100%;justify-content:center;">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        Install Oblivion Forge
+      </button>
+    </div>
+  </aside>
+
+  <div id="mobileScrim"></div>
+
+  <!-- ============ MAIN COLUMN ============ -->
+  <div id="main-col">
+    <header id="topbar">
+      <button class="icon-btn mobile-only" id="mobileSidebarToggle">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <button class="icon-btn" id="expandSidebarBtn" style="display:none;" title="Show sidebar">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4v16M4 4h16v16H4z"/></svg>
+      </button>
+      <div class="tab-switch" id="tabSwitch">
+        <button class="tab-btn active" data-tab="chat"><span class="tab-label">Chat</span></button>
+        <button class="tab-btn" data-tab="research"><span class="tab-label">Research</span></button>
+        <button class="tab-btn" data-tab="code"><span class="tab-label">Code</span></button>
+        <button class="tab-btn" data-tab="graph"><span class="tab-label">Graph</span></button>
+      </div>
+      <div class="topbar-spacer"></div>
+      <select class="select" id="providerSelect" title="AI Provider">
+        <option value="gemini">Google Gemini</option>
+        <option value="lmstudio">LM Studio (local)</option>
+      </select>
+      <select class="select" id="modelSelect" title="Model"><option value="">No models</option></select>
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle theme (Ctrl+Shift+L)">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" id="themeIcon"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn" id="toggleInspectorBtn" title="Toggle inspector">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/></svg>
+      </button>
+    </header>
+
+    <div id="workspace">
+      <!-- ===== CHAT VIEW ===== -->
+      <section class="view active" id="view-chat">
+        <div id="chatScroll"></div>
+        <div class="chat-inputbar">
+          <div class="chat-input-wrap">
+            <textarea id="chatInput" rows="1" placeholder="Ask Oblivion Forge anything… (Shift+Enter for newline)"></textarea>
+            <button class="btn sm" id="stopBtn" style="display:none;">Stop</button>
+            <button class="btn primary sm" id="sendBtn">Send</button>
+          </div>
+          <div class="hint-row">
+            <span id="activeProviderLabel">Provider: —</span>
+            <span>Enter to send · Shift+Enter newline</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== RESEARCH VIEW ===== -->
+      <section class="view" id="view-research">
+        <div class="pane-head">
+          <strong>Research Notes</strong>
+          <div class="topbar-spacer"></div>
+          <button class="btn sm" id="exportNotesBtn">Export .md</button>
+          <button class="btn primary sm" id="saveNotesBtn">Save</button>
+        </div>
+        <div class="pane-body"><textarea id="researchNotes" placeholder="# Research notes
+
+Write findings, structured data, or paste AI output here. Nothing is sent anywhere until you choose an action."></textarea></div>
+      </section>
+
+      <!-- ===== CODE VIEW ===== -->
+      <section class="view" id="view-code">
+        <div class="pane-head">
+          <strong>Code Workspace</strong>
+          <select class="select" id="codeLangSelect">
+            <option>javascript</option><option>python</option><option>typescript</option>
+            <option>html</option><option>css</option><option>json</option><option>bash</option>
+          </select>
+          <div class="topbar-spacer"></div>
+          <button class="btn sm" id="copyCodeBtn">Copy</button>
+          <button class="btn sm" id="downloadCodeBtn">Download</button>
+          <button class="btn primary sm" id="explainCodeBtn">Explain with AI</button>
+        </div>
+        <div class="pane-body"><textarea id="codeEditor" spellcheck="false" placeholder="// Write or paste code here.
+// Nothing is executed automatically — use 'Explain with AI' to send it to chat."></textarea></div>
+      </section>
+
+      <!-- ===== GRAPH VIEW ===== -->
+      <section class="view" id="view-graph">
+        <div id="graphView" style="flex:1;display:flex;flex-direction:column;min-height:0;">
+          <div class="graph-toolbar">
+            <button class="btn sm" id="newGraphBtn">New</button>
+            <button class="btn sm" id="sampleGraphBtn">Load Sample</button>
+            <div class="divider"></div>
+            <button class="icon-btn" id="zoomInBtn" title="Zoom in">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+            </button>
+            <button class="icon-btn" id="zoomOutBtn" title="Zoom out">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11h6"/></svg>
+            </button>
+            <button class="btn sm" id="fitBtn">Fit</button>
+            <button class="btn sm" id="resetLayoutBtn">Reset Layout</button>
+            <label class="note" style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="checkbox" id="livePhysicsChk"> Live physics</label>
+            <div class="divider"></div>
+            <input type="text" id="graphSearch" placeholder="Search nodes…">
+            <div class="topbar-spacer"></div>
+            <button class="btn sm" id="exportSvgBtn">Export SVG</button>
+            <button class="btn sm" id="exportPngBtn">Export PNG</button>
+            <button class="btn sm" id="exportJsonBtn">Export JSON</button>
+            <button class="btn primary sm" id="saveGraphBtn">Save Graph</button>
+          </div>
+          <div class="graph-canvas-wrap" id="graphCanvasWrap">
+            <svg id="graphSvg" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0 0L10 5L0 10z" fill="#D8CBB2"></path>
+                </marker>
+              </defs>
+              <g id="graphViewport"></g>
+            </svg>
+            <div class="graph-legend" id="graphLegend" style="display:none;"></div>
+            <div class="graph-empty" id="graphEmptyState"></div>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
-  <div id="lmb" hidden>
-    <label>Base URL</label><input id="lurl"><label>Authorization token (optional)</label><input id="ltok" type="password">
-    <label>Model</label><select id="lmodel"></select><button type="button" id="lmref" style="margin-top:6px">Discover models</button>
-    <div class="warn">Start the LM Studio server and enable CORS in its Developer tab. Without CORS the browser blocks requests from a hosted page.</div>
+
+  <!-- ============ INSPECTOR ============ -->
+  <aside id="inspector">
+    <div class="inspector-tabs">
+      <div class="insp-tab active" data-itab="details">Details</div>
+      <div class="insp-tab" data-itab="model">Model</div>
+      <div class="insp-tab" data-itab="artifacts">Artifacts</div>
+    </div>
+    <div class="insp-body" id="inspDetails">
+      <div class="empty-state" style="padding:20px 6px;">
+        <svg class="es-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg>
+        <h3 style="font-size:14.5px;">Nothing selected</h3>
+        <p>Select a graph node or edge, or an AI message, to inspect details here.</p>
+      </div>
+    </div>
+    <div class="insp-body hidden" id="inspModel"></div>
+    <div class="insp-body hidden" id="inspArtifacts"></div>
+  </aside>
+</div>
+
+<!-- ============ SETTINGS MODAL ============ -->
+<div class="modal-overlay hidden" id="settingsModal">
+  <div class="modal">
+    <div class="modal-head"><h3>Settings</h3><button class="icon-btn" id="closeSettingsBtn">✕</button></div>
+    <div class="modal-body">
+      <div class="settings-section">
+        <h4>Appearance</h4>
+        <div class="row"><label>Theme</label>
+          <div class="seg" id="themeSeg"><button data-theme="light">Light</button><button data-theme="dark">Dark</button></div>
+        </div>
+      </div>
+      <div class="settings-section">
+        <h4>Google Gemini</h4>
+        <div class="row"><label>Endpoint URL</label><input type="text" id="geminiEndpoint" placeholder="https://your-backend-proxy.example.com/gemini"></div>
+        <div class="row"><label>API Key</label><input type="password" id="geminiKey" placeholder="Only if your proxy requires a client header"></div>
+        <p class="note">Oblivion Forge never ships a hardcoded Gemini key. Point this at your own secure backend/proxy that holds credentials server-side. This is an integration placeholder for you to implement.</p>
+      </div>
+      <div class="settings-section">
+        <h4>LM Studio (local)</h4>
+        <div class="row"><label>Base URL</label><input type="text" id="lmBaseUrl" value="http://127.0.0.1:1234/v1"></div>
+        <div class="row"><label></label><button class="btn sm" id="testLmBtn">Test Connection</button><span id="lmTestResult" class="note"></span></div>
+        <p class="note">Uses the OpenAI-compatible <code>/models</code> and <code>/chat/completions</code> endpoints. If the request fails, start LM Studio's local server and enable CORS for this origin.</p>
+      </div>
+      <div class="settings-section">
+        <h4>Generation Settings</h4>
+        <div class="row"><label>Temperature</label><input type="number" id="genTemp" min="0" max="2" step="0.1" value="0.7"></div>
+        <div class="row"><label>Max tokens</label><input type="number" id="genMaxTokens" min="64" max="8192" step="32" value="1024"></div>
+        <div class="row"><label>Top P</label><input type="number" id="genTopP" min="0" max="1" step="0.05" value="1"></div>
+        <div class="row"><label>Streaming</label><input type="checkbox" id="genStream" checked></div>
+      </div>
+      <div class="settings-section">
+        <h4>Workspace Data</h4>
+        <div class="row"><button class="btn sm" id="exportAllBtn">Export workspace JSON</button>
+          <button class="btn sm" id="importAllBtn">Import workspace JSON</button>
+          <input type="file" id="importFileInput" accept="application/json" style="display:none;">
+        </div>
+        <div class="row"><button class="btn sm" id="clearAllBtn" style="color:var(--danger);border-color:var(--danger);">Clear all local data</button></div>
+      </div>
+      <div class="settings-section">
+        <h4>Install</h4>
+        <p class="note" id="installNote">Checking install availability…</p>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn primary" id="closeSettingsBtn2">Done</button></div>
   </div>
-  <div style="display:flex;gap:8px;margin-top:12px"><button id="test">Test connection</button><button class="p" id="save">Save</button><button id="close">Close</button></div>
-  <div id="diag"></div>
-</dialog>
+</div>
+
+<!-- ============ CONFIRM MODAL ============ -->
+<div class="modal-overlay hidden" id="confirmModal">
+  <div class="modal" style="width:380px;">
+    <div class="modal-head"><h3 id="confirmTitle">Confirm</h3></div>
+    <div class="modal-body"><p id="confirmMsg" style="margin:0;font-size:13.5px;color:var(--text-muted);"></p></div>
+    <div class="modal-foot"><button class="btn" id="confirmCancelBtn">Cancel</button><button class="btn primary" id="confirmOkBtn">Confirm</button></div>
+  </div>
+</div>
+
+<div id="toastHost"></div>
 
 <script>
-"use strict";
-/* ---------- util ---------- */
-const $=s=>document.querySelector(s), esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const uid=()=>Math.random().toString(36).slice(2,10);
-const LOGO="data:image/jpeg;base64,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";
+'use strict';
+/* =========================================================================================
+   OBLIVION FORGE — APPLICATION SCRIPT
+   Single-file architecture. Sections:
+   1. Utilities  2. IndexedDB  3. Markdown  4. Provider Adapters  5. Graph Engine
+   6. State & Rendering  7. Views (Chat/Research/Code/Graph)  8. Settings/PWA/Shortcuts  9. Boot
+   ========================================================================================= */
 
-/* ---------- storage layer: IndexedDB for sessions, localStorage for non-secret config ---------- */
-const Store={db:null,
- open(){return new Promise((ok,no)=>{const r=indexedDB.open("forge",1);r.onupgradeneeded=()=>r.result.createObjectStore("s",{keyPath:"id"});r.onsuccess=()=>{this.db=r.result;ok()};r.onerror=()=>no(r.error)})},
- tx(m){return this.db.transaction("s",m).objectStore("s")},
- all(){return new Promise(ok=>{const r=this.tx("readonly").getAll();r.onsuccess=()=>ok(r.result);r.onerror=()=>ok([])})},
- put(o){return new Promise(ok=>{const r=this.tx("readwrite").put(JSON.parse(JSON.stringify(o)));r.onsuccess=ok;r.onerror=ok})},
- del(id){return new Promise(ok=>{const r=this.tx("readwrite").delete(id);r.onsuccess=ok})}};
-const Cfg={d:{provider:"gemini",cmode:"key",proxy:"",gmodel:"gemini-2.5-flash",gapi:"gc",lurl:"http://127.0.0.1:1234/v1",lmodel:""},
- load(){try{Object.assign(this.d,JSON.parse(localStorage.getItem("forge.cfg")||"{}"))}catch{}return this.d},
- save(){localStorage.setItem("forge.cfg",JSON.stringify(this.d))},   /* never contains secrets */
- get key(){return sessionStorage.getItem("forge.key")||""},set key(v){v?sessionStorage.setItem("forge.key",v):sessionStorage.removeItem("forge.key")},
- get tok(){return sessionStorage.getItem("forge.tok")||""},set tok(v){v?sessionStorage.setItem("forge.tok",v):sessionStorage.removeItem("forge.tok")}};
+/* ---------------------------- 1. UTILITIES ---------------------------- */
+const $ = (sel, root) => (root||document).querySelector(sel);
+const $$ = (sel, root) => Array.from((root||document).querySelectorAll(sel));
+function uid(prefix){ return (prefix||'id') + '_' + Math.random().toString(36).slice(2,9) + Date.now().toString(36).slice(-4); }
+function esc(str){
+  return String(str==null?'':str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function hashStr(s){ let h=0; s=String(s); for(let i=0;i<s.length;i++){ h=(h<<5)-h+s.charCodeAt(i); h|=0; } return h>>>0; }
+function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function downloadBlob(filename, data, type){
+  const blob = data instanceof Blob ? data : new Blob([data], {type: type||'application/octet-stream'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download=filename; document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 400);
+}
+function toast(msg, kind){
+  const host = $('#toastHost');
+  const el = document.createElement('div');
+  el.className = 'toast' + (kind?(' '+kind):'');
+  el.textContent = msg;
+  host.appendChild(el);
+  setTimeout(()=>{ el.style.opacity='0'; el.style.transition='opacity .3s'; setTimeout(()=>el.remove(),320); }, 3600);
+}
+function fmtTime(ts){ try{ return new Date(ts).toLocaleString(); }catch(e){ return ''; } }
 
-/* ---------- provider adapters: common interface stream(msgs, signal) -> async generator of text ---------- */
-async function* sse(res){const rd=res.body.getReader(),dec=new TextDecoder();let buf="";
- for(;;){const{done,value}=await rd.read();if(done)break;buf+=dec.decode(value,{stream:true});
-  let i;while((i=buf.search(/\r?\n\r?\n/))>=0){const blk=buf.slice(0,i);buf=buf.slice(i).replace(/^\r?\n\r?\n/,"");
-   const data=blk.split(/\r?\n/).filter(l=>l.startsWith("data:")).map(l=>l.slice(5).trim()).join("");
-   if(data&&data!=="[DONE]"){try{yield JSON.parse(data)}catch{yield{__bad:data}}}}}}
-async function httpErr(res,prov){let t="";try{t=await res.text()}catch{}let m=t;try{m=JSON.parse(t).error?.message||t}catch{}
- const hint={400:"Bad request (check model name or context length).",401:"Credential rejected.",403:"Access denied: key restrictions or API not enabled.",404:"Model or endpoint not found.",429:"Rate limit or quota reached."}[res.status]||"";
- throw new Error(`${prov} HTTP ${res.status}. ${hint}\n${m.slice(0,600)}`)}
-const Gemini={name:"Gemini",
- async *stream(msgs,signal){const c=Cfg.d,proxy=c.cmode==="proxy";
-  if(!proxy&&!Cfg.key)throw new Error("No Gemini API key set. Open Provider settings and paste your key (kept for this tab only).");
-  const contents=msgs.map(m=>({role:m.role==="user"?"user":"model",parts:[{text:m.text}]}));
-  let url,body;
-  if(c.gapi==="ix"){url="https://generativelanguage.googleapis.com/v1beta/interactions";
-   body={model:c.gmodel,input:msgs[msgs.length-1].text,stream:true};const prev=msgs.prevId;if(prev)body.previous_interaction_id=prev}
-  else{url=`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(c.gmodel)}:streamGenerateContent?alt=sse`;body={contents}}
-  if(proxy){if(!c.proxy)throw new Error("Proxy URL is empty.");body={api:c.gapi,model:c.gmodel,...body};url=c.proxy}
-  let res;try{res=await fetch(url,{method:"POST",signal,headers:{"Content-Type":"application/json",...(proxy?{}:{"x-goog-api-key":Cfg.key})},body:JSON.stringify(body)})}
-  catch(e){if(e.name==="AbortError")throw e;throw new Error("Network error reaching Gemini: "+e.message)}
-  if(!res.ok)await httpErr(res,"Gemini");
-  for await(const ev of sse(res)){
-   if(ev.__bad)continue;if(ev.error)throw new Error("Gemini stream error: "+(ev.error.message||JSON.stringify(ev.error)));
-   const parts=ev.candidates?.[0]?.content?.parts;if(parts){for(const p of parts)if(p.text&&!p.thought)yield p.text;continue}
-   /* Interactions events: tolerant parse, format not verified against live API */
-   const t=ev.delta?.text??ev.content?.text;if(typeof t==="string")yield t;
-   const id=ev.interaction?.id||ev.id;if(id&&String(ev.event_type||"").includes("complete"))Gemini.lastId=id}},
- async test(){const ac=new AbortController();let n="";for await(const t of this.stream([{role:"user",text:"Reply with the single word: ready"}],ac.signal)){n+=t}return n.trim()||"(empty reply)"}};
-const LM={name:"LM Studio",
- h(){const h={"Content-Type":"application/json"};if(Cfg.tok)h.Authorization="Bearer "+Cfg.tok;return h},
- async models(){let r;try{r=await fetch(Cfg.d.lurl.replace(/\/$/,"")+"/models",{headers:this.h()})}catch(e){throw new Error("Cannot reach LM Studio at "+Cfg.d.lurl+". Server stopped, wrong URL, or CORS disabled. ("+e.message+")")}
-  if(!r.ok)await httpErr(r,"LM Studio");const j=await r.json();if(!Array.isArray(j.data))throw new Error("Malformed /models response.");return j.data.map(m=>m.id)},
- async *stream(msgs,signal){if(!Cfg.d.lmodel)throw new Error("No LM Studio model selected. Use Discover models in settings.");
-  let res;try{res=await fetch(Cfg.d.lurl.replace(/\/$/,"")+"/chat/completions",{method:"POST",signal,headers:this.h(),body:JSON.stringify({model:Cfg.d.lmodel,stream:true,messages:msgs.map(m=>({role:m.role==="user"?"user":"assistant",content:m.text}))})})}
-  catch(e){if(e.name==="AbortError")throw e;throw new Error("Cannot reach LM Studio. Check the server, URL and CORS setting. ("+e.message+")")}
-  if(!res.ok)await httpErr(res,"LM Studio");
-  for await(const ev of sse(res)){if(ev.__bad)continue;if(ev.error)throw new Error(ev.error.message||"LM Studio error");const t=ev.choices?.[0]?.delta?.content;if(t)yield t}},
- async test(){const m=await this.models();return m.length+" model(s): "+m.slice(0,5).join(", ")}};
-const provider=()=>Cfg.d.provider==="lm"?LM:Gemini;
-async function collect(msgs,signal){let s="";for await(const t of provider().stream(msgs,signal))s+=t;return s}
+function confirmDialog(title, msg){
+  return new Promise(resolve=>{
+    $('#confirmTitle').textContent = title;
+    $('#confirmMsg').textContent = msg;
+    const modal = $('#confirmModal');
+    modal.classList.remove('hidden');
+    const ok = $('#confirmOkBtn'), cancel = $('#confirmCancelBtn');
+    function cleanup(v){ modal.classList.add('hidden'); ok.removeEventListener('click', onOk); cancel.removeEventListener('click', onCancel); resolve(v); }
+    function onOk(){ cleanup(true); } function onCancel(){ cleanup(false); }
+    ok.addEventListener('click', onOk); cancel.addEventListener('click', onCancel);
+  });
+}
 
-/* ---------- graph engine: schema, validation, normalization, analysis ---------- */
-const Graph={
- norm:s=>String(s).toLowerCase().normalize("NFKD").replace(/[^\p{L}\p{N}]+/gu," ").trim(),
- parse(txt){const m=txt.match(/\{[\s\S]*\}/);if(!m)throw new Error("Model returned no JSON object.");return JSON.parse(m[0])},
- build(raw,meta){const rep={rejected:[],merged:0},nodes=new Map(),alias=new Map();
-  if(!Array.isArray(raw.nodes)||!Array.isArray(raw.edges))throw new Error("Schema invalid: need nodes[] and edges[].");
-  for(const n of raw.nodes){if(!n||typeof n.id!=="string"||typeof n.label!=="string"||!n.label.trim()){rep.rejected.push({item:n,why:"node missing id/label"});continue}
-   const k=this.norm(n.label);if(nodes.has(k)){alias.set(n.id,k);rep.merged++;const e=nodes.get(k);if(n.description&&!e.description)e.description=n.description;continue}
-   alias.set(n.id,k);nodes.set(k,{id:"n_"+k.replace(/ /g,"_").slice(0,48),label:n.label.trim(),type:String(n.type||"entity").toLowerCase(),description:n.description||"",provenance:meta})}
-  const ids=new Map([...nodes].map(([k,n])=>[k,n.id])),seen=new Set(),edges=[];
-  for(const e of raw.edges){const s=ids.get(alias.get(e?.source)),t=ids.get(alias.get(e?.target));
-   if(!s||!t||!e.relation){rep.rejected.push({item:e,why:"edge has unknown endpoint or no relation"});continue}
-   const rel=this.norm(e.relation).replace(/ /g,"_"),key=s+"|"+rel+"|"+t;if(seen.has(key)){rep.merged++;continue}seen.add(key);
-   edges.push({source:s,target:t,relation:rel,evidence:typeof e.evidence==="string"?e.evidence:"",confidence:["high","medium","low","disputed"].includes(e.confidence)?e.confidence:"unspecified",provenance:meta})}
-  return{schema:1,meta,nodes:[...nodes.values()],edges,report:rep}},
- stats(g){const deg={},par={};g.nodes.forEach(n=>{deg[n.id]=0;par[n.id]=n.id});const f=x=>par[x]===x?x:(par[x]=f(par[x]));
-  g.edges.forEach(e=>{deg[e.source]++;deg[e.target]++;par[f(e.source)]=f(e.target)});
-  const comps=new Set(g.nodes.map(n=>f(n.id))).size;
-  return{nodes:g.nodes.length,edges:g.edges.length,components:comps,deg,top:Object.entries(deg).sort((a,b)=>b[1]-a[1]).slice(0,5)}}};
-const PROMPT=t=>`Extract a knowledge graph from the text below. Reply with ONLY one JSON object, no prose:
-{"nodes":[{"id":"n1","label":"...","type":"concept|person|organization|method|metric|place|event","description":"..."}],"edges":[{"source":"n1","target":"n2","relation":"verb_phrase","evidence":"short supporting passage copied from the text","confidence":"high|medium|low|disputed"}]}
-Use only facts stated in the text. Do not invent entities, evidence or links.
-TEXT:
-${t}`;
+/* ---------------------------- 2. INDEXEDDB LAYER ---------------------------- */
+const DB_NAME = 'oblivion_forge_db';
+const DB_VERSION = 1;
+const STORES = ['projects','conversations','messages','graphs','artifacts','settings'];
+let dbPromise = null;
+function openDB(){
+  if(dbPromise) return dbPromise;
+  dbPromise = new Promise((resolve, reject)=>{
+    if(!('indexedDB' in window)){ reject(new Error('IndexedDB unsupported')); return; }
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      STORES.forEach(name=>{
+        if(!db.objectStoreNames.contains(name)){
+          const store = db.createObjectStore(name, {keyPath:'id'});
+          if(name!=='settings') store.createIndex('projectId','projectId',{unique:false});
+        }
+      });
+    };
+    req.onsuccess = ()=> resolve(req.result);
+    req.onerror = ()=> reject(req.error);
+  });
+  return dbPromise;
+}
+const idb = {
+  async put(store, val){ try{ const db=await openDB(); return new Promise((res,rej)=>{ const tx=db.transaction(store,'readwrite'); tx.objectStore(store).put(val); tx.oncomplete=()=>res(val); tx.onerror=()=>rej(tx.error); }); }catch(e){ memFallback(store,val); return val; } },
+  async delete(store, id){ try{ const db=await openDB(); return new Promise((res,rej)=>{ const tx=db.transaction(store,'readwrite'); tx.objectStore(store).delete(id); tx.oncomplete=()=>res(true); tx.onerror=()=>rej(tx.error); }); }catch(e){ return true; } },
+  async getAll(store){ try{ const db=await openDB(); return new Promise((res,rej)=>{ const tx=db.transaction(store,'readonly'); const r=tx.objectStore(store).getAll(); r.onsuccess=()=>res(r.result||[]); r.onerror=()=>rej(r.error); }); }catch(e){ return memStore[store] ? Object.values(memStore[store]) : []; } },
+  async get(store, id){ try{ const db=await openDB(); return new Promise((res,rej)=>{ const tx=db.transaction(store,'readonly'); const r=tx.objectStore(store).get(id); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); }); }catch(e){ return memStore[store] && memStore[store][id]; } },
+  async clear(store){ try{ const db=await openDB(); return new Promise((res,rej)=>{ const tx=db.transaction(store,'readwrite'); tx.objectStore(store).clear(); tx.oncomplete=()=>res(true); tx.onerror=()=>rej(tx.error); }); }catch(e){ memStore[store]={}; return true; } }
+};
+const memStore = {}; // fallback if IndexedDB unavailable
+function memFallback(store,val){ memStore[store]=memStore[store]||{}; memStore[store][val.id]=val; }
 
-/* ---------- graph renderer: canvas force layout ---------- */
-const View={g:null,pos:{},sel:null,q:"",cam:{x:0,y:0,k:1},raf:0,drag:null,
- colors:["#e0603f","#3a393c","#b08a4a","#7a8f6a","#8a6f9a","#4f8a9a","#c9a227"],
- set(g){this.g=g;this.pos={};const R=Math.sqrt(g.nodes.length)*40+60;
-  g.nodes.forEach((n,i)=>{const a=i*2.4;this.pos[n.id]={x:Math.cos(a)*R*Math.random(),y:Math.sin(a)*R*Math.random(),vx:0,vy:0}});
-  this.cam={x:0,y:0,k:1};this.iter=0;this.loop()},
- loop(){cancelAnimationFrame(this.raf);const step=()=>{this.tick();this.draw();if(++this.iter<400||this.drag)this.raf=requestAnimationFrame(step)};this.raf=requestAnimationFrame(step)},
- tick(){const g=this.g,P=this.pos,N=g.nodes,cool=Math.max(.05,1-this.iter/400);
-  for(let i=0;i<N.length;i++){const a=P[N[i].id];for(let j=i+1;j<N.length;j++){const b=P[N[j].id];let dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy+.01;if(d>90000)continue;const f=2600/d,r=Math.sqrt(d);a.vx+=dx/r*f;a.vy+=dy/r*f;b.vx-=dx/r*f;b.vy-=dy/r*f}
-   a.vx-=a.x*.004;a.vy-=a.y*.004}
-  g.edges.forEach(e=>{const a=P[e.source],b=P[e.target],dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1,f=(d-110)*.02;a.vx+=dx/d*f;a.vy+=dy/d*f;b.vx-=dx/d*f;b.vy-=dy/d*f});
-  N.forEach(n=>{const p=P[n.id];if(this.drag===n.id){p.vx=p.vy=0;return}p.x+=p.vx*cool*.5;p.y+=p.vy*cool*.5;p.vx*=.6;p.vy*=.6})},
- tc(t){const T=this.types||(this.types=[]);let i=T.indexOf(t);if(i<0){T.push(t);i=T.length-1}return this.colors[i%this.colors.length]},
- draw(){const cv=$("#cv"),dpr=devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;if(cv.width!==w*dpr){cv.width=w*dpr;cv.height=h*dpr}
-  const c=cv.getContext("2d"),cs=getComputedStyle(document.documentElement),ink=cs.getPropertyValue("--ink"),mute=cs.getPropertyValue("--mute");
-  c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);if(!this.g)return;
-  const{x,y,k}=this.cam,X=n=>w/2+(this.pos[n].x+x)*k,Y=n=>h/2+(this.pos[n].y+y)*k,q=Graph.norm(this.q),S=this.sel;
-  const nb=new Set();if(S)this.g.edges.forEach(e=>{if(e.source===S)nb.add(e.target);if(e.target===S)nb.add(e.source)});
-  c.lineWidth=1;c.font="11px system-ui";
-  this.g.edges.forEach(e=>{const hot=S&&(e.source===S||e.target===S);c.globalAlpha=S&&!hot?.12:.7;c.strokeStyle=hot?this.colors[0]:mute;
-   c.beginPath();c.moveTo(X(e.source),Y(e.source));c.lineTo(X(e.target),Y(e.target));c.stroke();
-   if(k>.8||hot){c.fillStyle=mute;c.fillText(e.relation,(X(e.source)+X(e.target))/2,(Y(e.source)+Y(e.target))/2)}});
-  const st=Graph.stats(this.g);
-  this.g.nodes.forEach(n=>{const m=q&&Graph.norm(n.label).includes(q),dim=(S&&n.id!==S&&!nb.has(n.id))||(q&&!m),r=(5+Math.min(st.deg[n.id],10)*1.3)*k;
-   c.globalAlpha=dim?.15:1;c.fillStyle=this.tc(n.type);c.beginPath();c.arc(X(n.id),Y(n.id),r,0,7);c.fill();
-   if(n.id===S||m){c.strokeStyle=ink;c.lineWidth=2;c.stroke();c.lineWidth=1}
-   c.fillStyle=ink;c.fillText(n.label,X(n.id)+r+3,Y(n.id)+4)});c.globalAlpha=1},
- hit(px,py){const cv=$("#cv"),w=cv.clientWidth,h=cv.clientHeight,{x,y,k}=this.cam;if(!this.g)return null;
-  for(const n of this.g.nodes){const p=this.pos[n.id];if(Math.hypot(w/2+(p.x+x)*k-px,h/2+(p.y+y)*k-py)<12*k+4)return n.id}return null}};
-(()=>{const cv=$("#cv");let pan=null;const pt=e=>{const r=cv.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
- cv.addEventListener("pointerdown",e=>{const[px,py]=pt(e),id=View.hit(px,py);cv.setPointerCapture(e.pointerId);
-  if(id){View.drag=id;View.sel=id;inspect(id);View.loop()}else{pan={px,py,cx:View.cam.x,cy:View.cam.y};if(View.sel){View.sel=null;inspect(null)}View.draw()}});
- cv.addEventListener("pointermove",e=>{const[px,py]=pt(e),{k}=View.cam;
-  if(View.drag){const p=View.pos[View.drag];p.x=(px-cv.clientWidth/2)/k-View.cam.x;p.y=(py-cv.clientHeight/2)/k-View.cam.y}
-  else if(pan){View.cam.x=pan.cx+(px-pan.px)/k;View.cam.y=pan.cy+(py-pan.py)/k;View.draw()}});
- const up=()=>{View.drag=null;pan=null};cv.addEventListener("pointerup",up);cv.addEventListener("pointercancel",up);
- cv.addEventListener("wheel",e=>{e.preventDefault();View.cam.k=Math.min(4,Math.max(.2,View.cam.k*(e.deltaY<0?1.1:.9)));View.draw()},{passive:false});
- addEventListener("resize",()=>View.draw())})();
-function inspect(id){const el=$("#insp");if(!id||!App.cur.graph){el.innerHTML="<h3>Inspector</h3><p>Select a node to see its type, evidence and provenance.</p>";return}
- const g=App.cur.graph,n=g.nodes.find(x=>x.id===id),L=n=>g.nodes.find(x=>x.id===n)?.label;
- const rel=g.edges.filter(e=>e.source===id||e.target===id).map(e=>`<p><b>${esc(L(e.source))}</b> ${esc(e.relation)} <b>${esc(L(e.target))}</b> (${esc(e.confidence)})${e.evidence?`<br><i>"${esc(e.evidence)}"</i>`:""}</p>`).join("");
- el.innerHTML=`<h3>${esc(n.label)}</h3><p>${esc(n.type)}</p><p>${esc(n.description)}</p><h3>Relations</h3>${rel||"<p>None</p>"}<h3>Provenance</h3><p>Model-extracted by ${esc(n.provenance.provider)} / ${esc(n.provenance.model)}. Evidence passages are model-quoted and not independently verified.</p>`}
+/* ---------------------------- 3. SAFE MARKDOWN RENDERER ---------------------------- */
+// Renders a restricted subset of Markdown safely: escapes everything first, then
+// reintroduces a small whitelist of formatting. Never uses raw AI HTML.
+function renderMarkdown(src){
+  if(!src) return '';
+  const codeBlocks = [];
+  // Extract fenced code blocks first (and the special ```graph fence is handled separately upstream)
+  let text = src.replace(/```(\w*)\n([\s\S]*?)```/g, (m, lang, code)=>{
+    const idx = codeBlocks.length;
+    codeBlocks.push({lang: lang||'text', code});
+    return `\u0000CODEBLOCK${idx}\u0000`;
+  });
+  text = esc(text);
+  // inline code
+  text = text.replace(/`([^`]+)`/g, (m,c)=>`<code>${c}</code>`);
+  // bold / italic
+  text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  text = text.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
+  // headers
+  text = text.replace(/^### (.*)$/gm, '<h3>$1</h3>');
+  text = text.replace(/^## (.*)$/gm, '<h2>$1</h2>');
+  text = text.replace(/^# (.*)$/gm, '<h1>$1</h1>');
+  // links [text](url) - only http(s)
+  text = text.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  // lists
+  text = text.replace(/^(?:- |\* )(.*)$/gm, '<li>$1</li>');
+  text = text.replace(/(<li>.*<\/li>\n?)+/g, m => `<ul>${m}</ul>`);
+  // paragraphs
+  text = text.split(/\n{2,}/).map(block=>{
+    if(/^<(h1|h2|h3|ul|li)/.test(block.trim())) return block;
+    if(/^\u0000CODEBLOCK/.test(block.trim())) return block;
+    return block.trim() ? `<p>${block.replace(/\n/g,'<br>')}</p>` : '';
+  }).join('\n');
+  // restore code blocks as sanitized escaped code
+  text = text.replace(/\u0000CODEBLOCK(\d+)\u0000/g, (m, idx) => {
+    const {lang, code} = codeBlocks[idx];
+    const safeLang = esc(lang);
+    const safeCode = esc(code);
+    const blockId = 'cb_'+idx+'_'+Math.random().toString(36).slice(2,7);
+    return `<div class="code-block"><div class="code-block-head"><span>${safeLang||'text'}</span><button class="btn sm copy-code-btn" data-target="${blockId}">Copy</button></div><pre><code id="${blockId}">${safeCode}</code></pre></div>`;
+  });
+  return text;
+}
 
-/* ---------- rendering: safe markdown (all text escaped first, never executes AI markup) ---------- */
-function md(t){const parts=t.split(/```/);return parts.map((p,i)=>i%2?`<pre><code>${esc(p.replace(/^[^\n]*\n/,""))}</code></pre>`:esc(p).replace(/`([^`\n]+)`/g,"<code>$1</code>").replace(/\*\*([^*\n]+)\*\*/g,"<b>$1</b>").replace(/^#{1,3} (.*)$/gm,"<h3>$1</h3>").replace(/\n/g,"<br>")).join("")}
+/* ---------------------------- 4. PROVIDER ADAPTERS ---------------------------- */
+// Common interface: { testConnection(), listModels(), sendChat(messages, opts) }
+// sendChat returns { abort(), done: Promise<string> } and may call opts.onToken(chunk) while streaming.
 
-/* ---------- app / state ---------- */
-const App={sessions:[],cur:null,ac:null,
- async init(){await Store.open();Cfg.load();this.sessions=(await Store.all()).sort((a,b)=>b.t-a.t);
-  document.documentElement.dataset.theme=localStorage.getItem("forge.theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");
-  this.cur=this.sessions[0]||this.mk();this.list();this.render();this.priv()},
- mk(){const s={id:uid(),title:"New session",t:Date.now(),msgs:[],graph:null};this.sessions.unshift(s);return s},
- save(){this.cur.t=Date.now();return Store.put(this.cur)},
- priv(){const c=Cfg.d;$("#priv").textContent=c.provider==="lm"?"Local: LM Studio":c.cmode==="proxy"?"Cloud via proxy":"Cloud: Google Gemini (direct)"},
- list(){const q=$("#q").value.toLowerCase(),L=$("#list");L.innerHTML="";
-  this.sessions.filter(s=>!q||s.title.toLowerCase().includes(q)||s.msgs.some(m=>m.text.toLowerCase().includes(q))).forEach(s=>{
-   const d=document.createElement("div");d.className="it"+(s===this.cur?" on":"");d.innerHTML=`<span>${esc(s.title)}</span><button aria-label="Delete session" style="border:0;padding:0 4px">x</button>`;
-   d.onclick=()=>{this.cur=s;this.list();this.render();$("#side").classList.remove("open")};
-   d.querySelector("button").onclick=async e=>{e.stopPropagation();await Store.del(s.id);this.sessions=this.sessions.filter(x=>x!==s);if(this.cur===s)this.cur=this.sessions[0]||this.mk();this.list();this.render()};L.appendChild(d)})},
- render(){const M=$("#msgs");M.innerHTML="";
-  if(!this.cur.msgs.length)M.innerHTML=`<div class="empty"><img src="${LOGO}" alt=""><h2>Start a research session</h2><p>Ask a question, then turn the answer into a knowledge graph. Choose Gemini or LM Studio in Provider settings.</p></div>`;
-  this.cur.msgs.forEach((m,i)=>this.bubble(m,i));M.scrollTop=M.scrollHeight;
-  if(this.cur.graph){View.set(this.cur.graph);this.gstat()}else{View.g=null;View.draw();$("#gst").textContent="No graph"}inspect(null)},
- bubble(m,i){const d=document.createElement("div");d.className="m "+m.role+(m.err?" err":"");
-  d.innerHTML=`<div class="r">${m.role==="user"?"You":esc(m.by||"Model")}</div><div class="b">${md(m.text)}</div>`;
-  if(m.role!=="user"&&!m.err){const a=document.createElement("div");a.className="acts";
-   a.innerHTML=`<button data-a="c">Copy</button><button data-a="r">Retry</button>`;a.onclick=e=>{const k=e.target.dataset.a;if(k==="c")navigator.clipboard?.writeText(m.text);if(k==="r")this.retry(i)};d.appendChild(a)}
-  $("#msgs").appendChild(d);return d.querySelector(".b")},
- async retry(i){this.cur.msgs.splice(i);await this.run()},
- async send(text){this.cur.msgs.push({role:"user",text});if(this.cur.title==="New session")this.cur.title=text.slice(0,40);this.list();await this.run()},
- async run(){const s=this.cur,P=provider();this.render();
-  const m={role:"model",text:"",by:`${P.name} · ${Cfg.d.provider==="lm"?Cfg.d.lmodel:Cfg.d.gmodel}`};s.msgs.push(m);const b=this.bubble(m,s.msgs.length-1);
-  this.ac=new AbortController();$("#stop").hidden=false;$("#send").disabled=true;
-  try{const hist=s.msgs.slice(0,-1).map(x=>({role:x.role,text:x.text}));let tick=0;
-   for await(const t of P.stream(hist,this.ac.signal)){m.text+=t;if(++tick%2===0){b.innerHTML=md(m.text);$("#msgs").scrollTop=1e9}}
-   if(!m.text)throw new Error("The provider returned an empty response.");b.innerHTML=md(m.text)}
-  catch(e){if(e.name==="AbortError"){m.text=(m.text||"")+"\n\n[stopped]"}else{m.err=true;m.text=e.message}}
-  finally{$("#stop").hidden=true;$("#send").disabled=false;this.ac=null;await this.save();this.render()}},
- async makeGraph(){const last=[...this.cur.msgs].reverse().find(m=>m.role==="model"&&!m.err);
-  if(!last){alert("Ask a question first. The graph is built from a real model answer.");return}
-  const st=$("#gst");st.textContent="Extracting...";this.ac=new AbortController();
-  try{const raw=Graph.parse(await collect([{role:"user",text:PROMPT(last.text)}],this.ac.signal));
-   const meta={provider:provider().name,model:Cfg.d.provider==="lm"?Cfg.d.lmodel:Cfg.d.gmodel,created:new Date().toISOString(),source:"session:"+this.cur.id};
-   this.cur.graph=Graph.build(raw,meta);await this.save();View.set(this.cur.graph);this.gstat()}
-  catch(e){st.textContent="Failed";alert("Graph extraction failed: "+e.message)}finally{this.ac=null}},
- gstat(){const g=this.cur.graph,s=Graph.stats(g);$("#gst").textContent=`${s.nodes} nodes, ${s.edges} edges, ${s.components} components, ${g.report.rejected.length} rejected, ${g.report.merged} merged`}};
+class GeminiAdapter{
+  constructor(cfg){ this.cfg = cfg || {}; }
+  isConfigured(){ return !!(this.cfg.endpoint && this.cfg.endpoint.trim()); }
+  async testConnection(){
+    if(!this.isConfigured()) return {ok:false, message:'No endpoint configured. Add your backend proxy URL in Settings.'};
+    try{
+      const res = await fetch(this.cfg.endpoint, {method:'OPTIONS'}).catch(()=>null);
+      return {ok:true, message:'Endpoint reachable (integration point ready). Implement your proxy logic server-side.'};
+    }catch(e){ return {ok:false, message:'Could not reach endpoint: '+e.message}; }
+  }
+  async listModels(){
+    // No official public client-side model listing without a secured backend.
+    // This returns a clearly-labeled placeholder list until the user wires a real proxy.
+    return [{id:'gemini-placeholder', label:'Configure endpoint to list live models', demo:true}];
+  }
+  sendChat(messages, opts){
+    opts = opts || {};
+    if(!this.isConfigured()){
+      const err = new Error('Gemini endpoint not configured. Open Settings and add your backend proxy URL. Oblivion Forge will never call Google APIs directly with an embedded key.');
+      return { abort(){}, done: Promise.reject(err) };
+    }
+    const controller = new AbortController();
+    const done = (async ()=>{
+      const res = await fetch(this.cfg.endpoint, {
+        method:'POST', signal: controller.signal,
+        headers: Object.assign({'Content-Type':'application/json'}, this.cfg.apiKey ? {'Authorization':'Bearer '+this.cfg.apiKey} : {}),
+        body: JSON.stringify({ messages, temperature: opts.temperature, maxTokens: opts.maxTokens, topP: opts.topP, stream: !!opts.stream })
+      });
+      if(!res.ok) throw new Error('Gemini proxy responded with HTTP '+res.status);
+      const data = await res.json().catch(()=>({text:''}));
+      const content = data.text || data.content || (data.candidates && data.candidates[0] && data.candidates[0].content) || '';
+      if(opts.onToken) opts.onToken(content);
+      return content;
+    })();
+    return { abort: ()=>controller.abort(), done };
+  }
+}
 
-/* ---------- wiring ---------- */
-$("#f").onsubmit=e=>{e.preventDefault();const v=$("#in").value.trim();if(!v||App.ac)return;$("#in").value="";App.send(v)};
-$("#in").onkeydown=e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#f").requestSubmit()}};
-$("#stop").onclick=()=>App.ac?.abort();
-$("#newS").onclick=()=>{App.cur=App.mk();App.list();App.render();$("#side").classList.remove("open")};
-$("#q").oninput=()=>App.list();$("#menu").onclick=()=>$("#side").classList.toggle("open");
-$("#th").onclick=()=>{const t=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=t;localStorage.setItem("forge.theme",t);View.draw()};
-document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));
- document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+b.dataset.v));if(b.dataset.v==="graph")requestAnimationFrame(()=>View.draw())});
-$("#gen").onclick=()=>App.makeGraph();$("#gs").oninput=e=>{View.q=e.target.value;View.draw()};
-$("#gx").onclick=()=>{if(!App.cur.graph)return;const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(App.cur.graph,null,2)],{type:"application/json"}));a.download="forge-graph.json";a.click()};
-/* settings */
-const dlg=$("#dlg"),sync=()=>{const lm=$("#prov").value==="lm";$("#gem").hidden=lm;$("#lmb").hidden=!lm};
-$("#prov").onchange=sync;
-$("#cfgB").onclick=()=>{const c=Cfg.d;$("#prov").value=c.provider;$("#cmode").value=c.cmode;$("#proxy").value=c.proxy;$("#gmodel").value=c.gmodel;$("#gapi").value=c.gapi;$("#key").value=Cfg.key;$("#lurl").value=c.lurl;$("#ltok").value=Cfg.tok;
- $("#lmodel").innerHTML=c.lmodel?`<option>${esc(c.lmodel)}</option>`:"";$("#diag").textContent="";sync();dlg.showModal()};
-function read(){Object.assign(Cfg.d,{provider:$("#prov").value,cmode:$("#cmode").value,proxy:$("#proxy").value.trim(),gmodel:$("#gmodel").value.trim(),gapi:$("#gapi").value,lurl:$("#lurl").value.trim(),lmodel:$("#lmodel").value});Cfg.key=$("#key").value.trim();Cfg.tok=$("#ltok").value.trim();Cfg.save();App.priv()}
-$("#save").onclick=()=>{read();dlg.close()};$("#close").onclick=()=>dlg.close();
-$("#lmref").onclick=async()=>{read();try{const m=await LM.models();$("#lmodel").innerHTML=m.map(x=>`<option>${esc(x)}</option>`).join("");if(m.includes(Cfg.d.lmodel))$("#lmodel").value=Cfg.d.lmodel;$("#diag").textContent=m.length+" model(s) found."}catch(e){$("#diag").textContent=e.message}};
-$("#test").onclick=async()=>{read();$("#diag").textContent="Testing...";try{$("#diag").textContent="OK: "+await provider().test()}catch(e){$("#diag").textContent="Failed: "+e.message}};
-App.init();
+class LMStudioAdapter{
+  constructor(cfg){ this.cfg = cfg || {baseUrl:'http://127.0.0.1:1234/v1'}; }
+  base(){ return (this.cfg.baseUrl||'http://127.0.0.1:1234/v1').replace(/\/+$/,''); }
+  async testConnection(){
+    try{
+      const res = await fetch(this.base()+'/models', {method:'GET'});
+      if(!res.ok) return {ok:false, message:'HTTP '+res.status+' from LM Studio.'};
+      const data = await res.json();
+      const count = (data.data||[]).length;
+      return {ok:true, message:`Connected. ${count} model(s) available.`};
+    }catch(e){
+      return {ok:false, message:'Connection failed: '+e.message+'. Ensure LM Studio local server is running and CORS is allowed for this origin.'};
+    }
+  }
+  async listModels(){
+    const res = await fetch(this.base()+'/models');
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data = await res.json();
+    return (data.data||[]).map(m=>({id:m.id, label:m.id, demo:false}));
+  }
+  sendChat(messages, opts){
+    opts = opts || {};
+    const controller = new AbortController();
+    const body = {
+      model: opts.model || 'local-model',
+      messages: messages.map(m=>({role:m.role, content:m.content})),
+      temperature: opts.temperature != null ? opts.temperature : 0.7,
+      max_tokens: opts.maxTokens || 1024,
+      top_p: opts.topP != null ? opts.topP : 1,
+      stream: !!opts.stream
+    };
+    const self = this;
+    const done = (async ()=>{
+      let res;
+      try{
+        res = await fetch(self.base()+'/chat/completions', {
+          method:'POST', signal: controller.signal,
+          headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)
+        });
+      }catch(e){
+        throw new Error('Could not reach LM Studio at '+self.base()+'. Is the local server running and CORS enabled? ('+e.message+')');
+      }
+      if(!res.ok){ const t = await res.text().catch(()=> ''); throw new Error('LM Studio HTTP '+res.status+': '+t.slice(0,200)); }
+      if(!body.stream || !res.body){
+        const data = await res.json();
+        const content = data.choices && data.choices[0] && data.choices[0].message ? data.choices[0].message.content : '';
+        if(opts.onToken) opts.onToken(content);
+        return content;
+      }
+      // Stream SSE
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let full = ''; let buf = '';
+      while(true){
+        const {done:streamDone, value} = await reader.read();
+        if(streamDone) break;
+        buf += decoder.decode(value, {stream:true});
+        const lines = buf.split('\n');
+        buf = lines.pop();
+        for(const line of lines){
+          const l = line.trim();
+          if(!l.startsWith('data:')) continue;
+          const payload = l.slice(5).trim();
+          if(payload === '[DONE]') continue;
+          try{
+            const json = JSON.parse(payload);
+            const delta = json.choices && json.choices[0] && (json.choices[0].delta ? json.choices[0].delta.content : json.choices[0].text);
+            if(delta){ full += delta; if(opts.onToken) opts.onToken(delta); }
+          }catch(e){ /* ignore partial */ }
+        }
+      }
+      return full;
+    })();
+    return { abort: ()=>controller.abort(), done };
+  }
+}
+
+const Providers = {
+  gemini: new GeminiAdapter(loadLS('obf_gemini_cfg', {endpoint:'', apiKey:''})),
+  lmstudio: new LMStudioAdapter(loadLS('obf_lm_cfg', {baseUrl:'http://127.0.0.1:1234/v1'}))
+};
+function loadLS(key, fallback){ try{ const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }catch(e){ return fallback; } }
+function saveLS(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
+
+/* ---------------------------- 5. GRAPH ENGINE ---------------------------- */
+const NODE_COLORS = {
+  concept:'#D97757', entity:'#4E8B6D', person:'#6B7FD7', event:'#B8873A',
+  code:'#8A6FD1', source:'#C04B3D', default:'#8E8372'
+};
+function colorFor(type){ return NODE_COLORS[(type||'').toLowerCase()] || NODE_COLORS.default; }
+
+// Extract a ```graph fenced JSON block from AI/text content.
+function extractGraphPayload(text){
+  if(!text) return null;
+  const m = text.match(/```graph\s*([\s\S]*?)```/);
+  if(!m) return null;
+  try{ return JSON.parse(m[1]); }catch(e){ return {__parseError: e.message, __raw:m[1]}; }
+}
+
+// Validate & sanitize raw graph JSON into {nodes, edges, issues[]}
+function sanitizeGraph(raw){
+  const issues = [];
+  if(!raw || typeof raw !== 'object'){ return {nodes:[], edges:[], issues:['No valid graph object found.']}; }
+  if(raw.__parseError){ return {nodes:[], edges:[], issues:['JSON parse error: '+raw.__parseError]}; }
+  const rawNodes = Array.isArray(raw.nodes) ? raw.nodes : [];
+  const rawEdges = Array.isArray(raw.edges) ? raw.edges : [];
+  const seen = new Set();
+  const nodes = [];
+  rawNodes.forEach((n,i)=>{
+    if(!n || typeof n !== 'object'){ issues.push(`Node #${i} skipped: not an object.`); return; }
+    let id = n.id != null ? String(n.id) : null;
+    if(!id){ issues.push(`Node #${i} skipped: missing id.`); return; }
+    if(seen.has(id)){ issues.push(`Node "${id}" skipped: duplicate id.`); return; }
+    seen.add(id);
+    nodes.push({
+      id, label: String(n.label||id).slice(0,80), type: String(n.type||'concept').slice(0,30),
+      description: String(n.description||'').slice(0,600),
+      group: n.group!=null?String(n.group):null, level: Number.isFinite(n.level)?n.level:null,
+      confidence: Number.isFinite(n.confidence)?Math.max(0,Math.min(1,n.confidence)):null,
+      metadata: (n.metadata && typeof n.metadata==='object') ? n.metadata : null
+    });
+  });
+  const edges = [];
+  rawEdges.forEach((e,i)=>{
+    if(!e || typeof e !== 'object'){ issues.push(`Edge #${i} skipped: not an object.`); return; }
+    const source = e.source!=null?String(e.source):null, target = e.target!=null?String(e.target):null;
+    if(!source || !target){ issues.push(`Edge #${i} skipped: missing source/target.`); return; }
+    if(!seen.has(source) || !seen.has(target)){ issues.push(`Edge #${i} skipped: references unknown node.`); return; }
+    edges.push({ source, target, label: String(e.label||'related to').slice(0,60), directed: e.directed !== false });
+  });
+  if(!nodes.length) issues.push('Graph contained no valid nodes.');
+  return {nodes, edges, issues};
+}
+
+class GraphRenderer{
+  constructor(svgEl, viewportEl){
+    this.svg = svgEl; this.viewport = viewportEl;
+    this.nodes = []; this.edges = [];
+    this.scale = 1; this.tx = 0; this.ty = 0;
+    this.selected = null; this.hiddenTypes = new Set();
+    this.searchTerm = '';
+    this._dragNode = null; this._panStart = null; this._livePhysics = false;
+    this._bindEvents();
+  }
+  loadGraph(graph){
+    this.graphMeta = {id: graph.id || uid('graph'), name: graph.name || 'Untitled Graph'};
+    const seed = hashStr(this.graphMeta.id);
+    const rnd = mulberry32(seed);
+    this.nodes = graph.nodes.map((n,i)=> Object.assign({}, n, {
+      x: (rnd()-0.5)*600, y:(rnd()-0.5)*400, vx:0, vy:0
+    }));
+    this.edges = graph.edges.map(e=> Object.assign({}, e));
+    this.runSimulation(260);
+    this.selected = null;
+    this.render();
+    this.fitToScreen();
+    this.updateLegend();
+  }
+  runSimulation(iterations){
+    const nodes = this.nodes, edges = this.edges;
+    const idx = {}; nodes.forEach((n,i)=> idx[n.id]=i);
+    const k = 140; // ideal spring length
+    for(let it=0; it<iterations; it++){
+      // repulsion
+      for(let i=0;i<nodes.length;i++){
+        for(let j=i+1;j<nodes.length;j++){
+          let dx = nodes[i].x-nodes[j].x, dy = nodes[i].y-nodes[j].y;
+          let distSq = dx*dx+dy*dy || 0.01;
+          let dist = Math.sqrt(distSq);
+          let force = (k*k)/distSq * 6;
+          let fx = (dx/dist)*force, fy=(dy/dist)*force;
+          nodes[i].vx += fx; nodes[i].vy += fy;
+          nodes[j].vx -= fx; nodes[j].vy -= fy;
+        }
+      }
+      // attraction along edges
+      edges.forEach(e=>{
+        const a = nodes[idx[e.source]], b = nodes[idx[e.target]];
+        if(!a||!b) return;
+        let dx=b.x-a.x, dy=b.y-a.y; let dist=Math.sqrt(dx*dx+dy*dy)||0.01;
+        let force = (dist-k)*0.02;
+        let fx=(dx/dist)*force, fy=(dy/dist)*force;
+        a.vx += fx; a.vy += fy; b.vx -= fx; b.vy -= fy;
+      });
+      // centering
+      nodes.forEach(n=>{ n.vx += -n.x*0.004; n.vy += -n.y*0.004; });
+      // integrate with damping
+      nodes.forEach(n=>{
+        if(n.fixed) { n.vx=0; n.vy=0; return; }
+        n.vx *= 0.82; n.vy *= 0.82;
+        n.x += n.vx*0.9; n.y += n.vy*0.9;
+      });
+    }
+  }
+  setLivePhysics(on){
+    this._livePhysics = on;
+    if(on) this._liveTick();
+  }
+  _liveTick(){
+    if(!this._livePhysics) return;
+    this.runSimulation(1);
+    this.render();
+    requestAnimationFrame(()=>this._liveTick());
+  }
+  updateLegend(){
+    const types = Array.from(new Set(this.nodes.map(n=>n.type||'default')));
+    const legend = $('#graphLegend');
+    if(!types.length){ legend.style.display='none'; return; }
+    legend.style.display='block';
+    legend.innerHTML = '<div style="font-weight:700;margin-bottom:6px;">Node Types</div>' + types.map(t=>{
+      const active = !this.hiddenTypes.has(t);
+      return `<div class="legend-row" data-type="${esc(t)}" style="opacity:${active?1:.4}"><span class="legend-swatch" style="background:${colorFor(t)}"></span>${esc(t)}</div>`;
+    }).join('');
+    $$('.legend-row', legend).forEach(row=>{
+      row.addEventListener('click', ()=>{
+        const t = row.getAttribute('data-type');
+        if(this.hiddenTypes.has(t)) this.hiddenTypes.delete(t); else this.hiddenTypes.add(t);
+        this.updateLegend(); this.render();
+      });
+    });
+  }
+  applyTransform(){ this.viewport.setAttribute('transform', `translate(${this.tx},${this.ty}) scale(${this.scale})`); }
+  fitToScreen(){
+    if(!this.nodes.length) return;
+    const xs = this.nodes.map(n=>n.x), ys = this.nodes.map(n=>n.y);
+    const minX=Math.min(...xs)-60, maxX=Math.max(...xs)+60, minY=Math.min(...ys)-60, maxY=Math.max(...ys)+60;
+    const w = this.svg.clientWidth || 800, h = this.svg.clientHeight || 600;
+    const gw = Math.max(maxX-minX, 1), gh = Math.max(maxY-minY, 1);
+    this.scale = Math.min(w/gw, h/gh, 2);
+    this.tx = w/2 - ((minX+maxX)/2)*this.scale;
+    this.ty = h/2 - ((minY+maxY)/2)*this.scale;
+    this.applyTransform();
+  }
+  render(){
+    const vp = this.viewport; vp.innerHTML = '';
+    const term = this.searchTerm.trim().toLowerCase();
+    const edgeNS = 'http://www.w3.org/2000/svg';
+    const idx = {}; this.nodes.forEach(n=>idx[n.id]=n);
+    // Resolve CSS custom properties to concrete values so exported SVG/PNG remain correct
+    // even outside this document's stylesheet context.
+    const cs = getComputedStyle(document.documentElement);
+    const cEdge = (cs.getPropertyValue('--border-strong')||'#D8CBB2').trim();
+    const cEdgeLabel = (cs.getPropertyValue('--text-muted')||'#79705F').trim();
+    const cNodeStroke = (cs.getPropertyValue('--bg-elevated')||'#FFFFFF').trim();
+    const cNodeText = (cs.getPropertyValue('--text')||'#2A2521').trim();
+    const arrowPath = this.svg.querySelector('#arrow path');
+    if(arrowPath) arrowPath.setAttribute('fill', cEdge);
+    this.edges.forEach(e=>{
+      const a = idx[e.source], b = idx[e.target]; if(!a||!b) return;
+      const hiddenByType = this.hiddenTypes.has(a.type) || this.hiddenTypes.has(b.type);
+      const g = document.createElementNS(edgeNS,'g'); g.setAttribute('class','gedge'+(hiddenByType?' dimmed':''));
+      const line = document.createElementNS(edgeNS,'line');
+      line.setAttribute('x1',a.x); line.setAttribute('y1',a.y); line.setAttribute('x2',b.x); line.setAttribute('y2',b.y);
+      line.setAttribute('stroke', cEdge); line.setAttribute('stroke-width','1.6');
+      if(e.directed) line.setAttribute('marker-end','url(#arrow)');
+      g.appendChild(line);
+      const mx=(a.x+b.x)/2, my=(a.y+b.y)/2;
+      const label = document.createElementNS(edgeNS,'text'); label.setAttribute('x',mx); label.setAttribute('y',my-4); label.setAttribute('text-anchor','middle'); label.setAttribute('fill', cEdgeLabel); label.setAttribute('font-size','9.5'); label.textContent = e.label||'';
+      g.appendChild(label);
+      g.addEventListener('click', (ev)=>{ ev.stopPropagation(); this.selectEdge(e); });
+      vp.appendChild(g);
+    });
+    this.nodes.forEach(n=>{
+      const matches = term && (n.label.toLowerCase().includes(term) || (n.description||'').toLowerCase().includes(term));
+      const dim = this.hiddenTypes.has(n.type) || (term && !matches);
+      const g = document.createElementNS(edgeNS,'g');
+      g.setAttribute('class','gnode'+(dim?' dimmed':'')+(this.selected && this.selected.kind==='node' && this.selected.data.id===n.id?' selected':''));
+      g.setAttribute('transform', `translate(${n.x},${n.y})`);
+      g.setAttribute('data-id', n.id);
+      const r = term && matches ? 22 : 17;
+      const isSelected = this.selected && this.selected.kind==='node' && this.selected.data.id===n.id;
+      const circle = document.createElementNS(edgeNS,'circle'); circle.setAttribute('r', r); circle.setAttribute('fill', colorFor(n.type));
+      circle.setAttribute('stroke', isSelected ? '#D97757' : cNodeStroke); circle.setAttribute('stroke-width', isSelected ? '3.5' : '2.5');
+      g.appendChild(circle);
+      const text = document.createElementNS(edgeNS,'text'); text.setAttribute('y', r+13); text.setAttribute('text-anchor','middle'); text.setAttribute('fill', cNodeText); text.setAttribute('font-size','11'); text.setAttribute('font-weight','600'); text.textContent = n.label;
+      g.appendChild(text);
+      g.addEventListener('mousedown', (ev)=>{ ev.stopPropagation(); this._startDrag(n, ev); });
+      g.addEventListener('touchstart', (ev)=>{ ev.stopPropagation(); const t=ev.touches[0]; this._startDrag(n, {clientX:t.clientX, clientY:t.clientY}); }, {passive:true});
+      g.addEventListener('click', (ev)=>{ ev.stopPropagation(); this.selectNode(n); });
+      vp.appendChild(g);
+    });
+    this.applyTransform();
+  }
+  selectNode(n){ this.selected = {kind:'node', data:n}; this.render(); renderInspectorSelection(this.selected); }
+  selectEdge(e){ this.selected = {kind:'edge', data:e}; this.render(); renderInspectorSelection(this.selected); }
+  deleteSelected(){
+    if(!this.selected) return;
+    if(this.selected.kind==='node'){
+      const id = this.selected.data.id;
+      this.nodes = this.nodes.filter(n=>n.id!==id);
+      this.edges = this.edges.filter(e=>e.source!==id && e.target!==id);
+    } else {
+      const e = this.selected.data;
+      this.edges = this.edges.filter(x=>x!==e);
+    }
+    this.selected = null; this.render(); this.updateLegend();
+    $('#inspDetails').innerHTML = '<div class="note">Deleted. Select another element to inspect.</div>';
+  }
+  _startDrag(node, ev){
+    this._dragNode = node;
+    const svgRect = this.svg.getBoundingClientRect();
+    const move = (e)=>{
+      const cx = e.clientX!=null?e.clientX:e.touches[0].clientX, cy = e.clientY!=null?e.clientY:e.touches[0].clientY;
+      const x = (cx - svgRect.left - this.tx)/this.scale, y = (cy - svgRect.top - this.ty)/this.scale;
+      node.x = x; node.y = y; node.vx=0; node.vy=0;
+      this.render();
+    };
+    const up = ()=>{
+      window.removeEventListener('mousemove', move); window.removeEventListener('mouseup', up);
+      window.removeEventListener('touchmove', move); window.removeEventListener('touchend', up);
+      if(!this._livePhysics) this.runSimulation(25);
+      this.render();
+    };
+    window.addEventListener('mousemove', move); window.addEventListener('mouseup', up);
+    window.addEventListener('touchmove', move); window.addEventListener('touchend', up);
+  }
+  _bindEvents(){
+    this.svg.addEventListener('wheel', (ev)=>{
+      ev.preventDefault();
+      const delta = ev.deltaY > 0 ? 0.9 : 1.1;
+      const rect = this.svg.getBoundingClientRect();
+      const mx = ev.clientX-rect.left, my = ev.clientY-rect.top;
+      const wx = (mx-this.tx)/this.scale, wy=(my-this.ty)/this.scale;
+      this.scale = Math.max(0.15, Math.min(4, this.scale*delta));
+      this.tx = mx - wx*this.scale; this.ty = my - wy*this.scale;
+      this.applyTransform();
+    }, {passive:false});
+    this.svg.addEventListener('mousedown', (ev)=>{
+      if(ev.target !== this.svg && ev.target.id !== 'graphViewport') return;
+      this.svg.classList.add('panning');
+      this._panStart = {x:ev.clientX, y:ev.clientY, tx:this.tx, ty:this.ty};
+      this.selected = null; renderInspectorSelection(null); this.render();
+      const move = (e)=>{
+        if(!this._panStart) return;
+        this.tx = this._panStart.tx + (e.clientX-this._panStart.x);
+        this.ty = this._panStart.ty + (e.clientY-this._panStart.y);
+        this.applyTransform();
+      };
+      const up = ()=>{ this._panStart=null; this.svg.classList.remove('panning'); window.removeEventListener('mousemove',move); window.removeEventListener('mouseup',up); };
+      window.addEventListener('mousemove', move); window.addEventListener('mouseup', up);
+    });
+    this.svg.addEventListener('dblclick', (ev)=>{
+      if(ev.target !== this.svg && ev.target.id !== 'graphViewport') return;
+      const rect = this.svg.getBoundingClientRect();
+      const x = (ev.clientX-rect.left-this.tx)/this.scale, y = (ev.clientY-rect.top-this.ty)/this.scale;
+      const label = prompt('New node label:', 'New Node');
+      if(!label) return;
+      const node = {id: uid('n'), label: label.slice(0,80), type:'concept', description:'', x, y, vx:0, vy:0};
+      this.nodes.push(node); this.render(); this.updateLegend();
+    });
+  }
+  toSVGString(){
+    const clone = this.svg.cloneNode(true);
+    clone.setAttribute('xmlns','http://www.w3.org/2000/svg');
+    clone.setAttribute('width', this.svg.clientWidth); clone.setAttribute('height', this.svg.clientHeight);
+    // inline computed colors for portability
+    const bg = getComputedStyle(document.body).getPropertyValue('--bg').trim();
+    clone.style.background = bg;
+    return new XMLSerializer().serializeToString(clone);
+  }
+  toJSON(){
+    return { id: this.graphMeta ? this.graphMeta.id : uid('graph'), name: this.graphMeta ? this.graphMeta.name : 'Untitled Graph',
+      nodes: this.nodes.map(({x,y,vx,vy,...rest})=> Object.assign({x,y}, rest)), edges: this.edges };
+  }
+}
+
+/* ---------------------------- 6. APPLICATION STATE ---------------------------- */
+const state = {
+  projects: [], conversations: [], messages: [], graphs: [], artifacts: [],
+  currentProjectId: null, currentConversationId: null,
+  provider: 'lmstudio', model: '', theme: 'light',
+  settings: { temperature:0.7, maxTokens:1024, topP:1, stream:true },
+  sidebarCollapsed:false, inspectorCollapsed:false, activeTab:'chat',
+  pendingRequest: null
+};
+
+let graphRenderer;
+
+async function persistSettings(){
+  await idb.put('settings', { id:'main', provider:state.provider, model:state.model, theme:state.theme, settings:state.settings,
+    sidebarCollapsed: state.sidebarCollapsed, inspectorCollapsed: state.inspectorCollapsed });
+}
+
+/* ----- Sidebar rendering ----- */
+function renderProjects(){
+  const list = $('#projectList');
+  if(!state.projects.length){ list.innerHTML = '<div class="empty-hint">No projects yet. Click + to create one.</div>'; return; }
+  list.innerHTML = state.projects.map(p=>`
+    <div class="list-item ${p.id===state.currentProjectId?'active':''}" data-id="${p.id}" data-kind="project">
+      <span class="li-dot"></span><span class="li-name">${esc(p.name)}</span>
+      <span class="li-actions">
+        <button class="icon-btn sm renameP" data-id="${p.id}" title="Rename">✎</button>
+        <button class="icon-btn sm delP" data-id="${p.id}" title="Delete">🗑</button>
+      </span>
+    </div>`).join('');
+  $$('.list-item[data-kind="project"]', list).forEach(el=> el.addEventListener('click', (e)=>{
+    if(e.target.closest('button')) return;
+    selectProject(el.getAttribute('data-id'));
+  }));
+  $$('.renameP', list).forEach(b=> b.addEventListener('click', async (e)=>{ e.stopPropagation();
+    const p = state.projects.find(x=>x.id===b.getAttribute('data-id')); if(!p) return;
+    const name = prompt('Rename project', p.name); if(!name) return; p.name = name.slice(0,60); await idb.put('projects', p); renderProjects();
+  }));
+  $$('.delP', list).forEach(b=> b.addEventListener('click', async (e)=>{ e.stopPropagation();
+    const id = b.getAttribute('data-id');
+    const ok = await confirmDialog('Delete project', 'This removes the project and its conversations. This cannot be undone.');
+    if(!ok) return;
+    state.projects = state.projects.filter(p=>p.id!==id);
+    await idb.delete('projects', id);
+    const convsToDelete = state.conversations.filter(c=>c.projectId===id);
+    for(const c of convsToDelete){ await idb.delete('conversations', c.id); }
+    state.conversations = state.conversations.filter(c=>c.projectId!==id);
+    if(state.currentProjectId===id){ state.currentProjectId = state.projects[0]?state.projects[0].id:null; state.currentConversationId=null; }
+    renderProjects(); renderConversations(); renderChat();
+  }));
+}
+function renderConversations(){
+  const list = $('#convList');
+  const convs = state.conversations.filter(c=> c.projectId === state.currentProjectId);
+  if(!state.currentProjectId){ list.innerHTML = '<div class="empty-hint">Select or create a project first.</div>'; return; }
+  if(!convs.length){ list.innerHTML = '<div class="empty-hint">No conversations yet.</div>'; return; }
+  list.innerHTML = convs.map(c=>`
+    <div class="list-item ${c.id===state.currentConversationId?'active':''}" data-id="${c.id}" data-kind="conv">
+      <span class="li-dot"></span><span class="li-name">${esc(c.title)}</span>
+      <span class="li-actions"><button class="icon-btn sm delC" data-id="${c.id}" title="Delete">🗑</button></span>
+    </div>`).join('');
+  $$('.list-item[data-kind="conv"]', list).forEach(el=> el.addEventListener('click', (e)=>{
+    if(e.target.closest('button')) return;
+    selectConversation(el.getAttribute('data-id'));
+  }));
+  $$('.delC', list).forEach(b=> b.addEventListener('click', async (e)=>{ e.stopPropagation();
+    const id = b.getAttribute('data-id');
+    const ok = await confirmDialog('Delete conversation', 'This permanently deletes the conversation and its messages.');
+    if(!ok) return;
+    state.conversations = state.conversations.filter(c=>c.id!==id);
+    await idb.delete('conversations', id);
+    const msgs = state.messages.filter(m=>m.conversationId===id);
+    for(const m of msgs) await idb.delete('messages', m.id);
+    state.messages = state.messages.filter(m=>m.conversationId!==id);
+    if(state.currentConversationId===id) state.currentConversationId=null;
+    renderConversations(); renderChat();
+  }));
+}
+function renderGraphList(){
+  const list = $('#graphList');
+  if(!state.graphs.length){ list.innerHTML = '<div class="empty-hint">No saved graphs yet.</div>'; return; }
+  list.innerHTML = state.graphs.map(g=>`
+    <div class="list-item" data-id="${g.id}" data-kind="graph">
+      <span class="li-dot" style="background:var(--accent)"></span><span class="li-name">${esc(g.name)}</span>
+      <span class="li-actions"><button class="icon-btn sm delG" data-id="${g.id}" title="Delete">🗑</button></span>
+    </div>`).join('');
+  $$('.list-item[data-kind="graph"]', list).forEach(el=> el.addEventListener('click', (e)=>{
+    if(e.target.closest('button')) return;
+    const g = state.graphs.find(x=>x.id===el.getAttribute('data-id'));
+    if(g){ switchTab('graph'); graphRenderer.loadGraph(g); toast('Loaded graph "'+g.name+'"'); }
+  }));
+  $$('.delG', list).forEach(b=> b.addEventListener('click', async (e)=>{ e.stopPropagation();
+    const id = b.getAttribute('data-id');
+    const ok = await confirmDialog('Delete graph', 'This permanently removes the saved graph.');
+    if(!ok) return;
+    state.graphs = state.graphs.filter(g=>g.id!==id); await idb.delete('graphs', id); renderGraphList();
+  }));
+}
+
+async function selectProject(id){
+  state.currentProjectId = id; state.currentConversationId = null;
+  renderProjects(); renderConversations(); renderChat();
+}
+async function selectConversation(id){
+  state.currentConversationId = id; renderConversations(); renderChat();
+}
+
+/* ----- Chat rendering ----- */
+function currentMessages(){
+  return state.messages.filter(m=>m.conversationId === state.currentConversationId).sort((a,b)=>a.ts-b.ts);
+}
+function renderChat(){
+  const scroll = $('#chatScroll');
+  if(!state.currentConversationId){
+    scroll.innerHTML = '';
+    scroll.appendChild(emptyStateEl('Start a conversation', 'Create or select a conversation from the sidebar, choose a provider above, then ask a question. Responses that include a structured graph block can be visualized instantly.', iconChat()));
+    return;
+  }
+  const msgs = currentMessages();
+  if(!msgs.length){
+    scroll.innerHTML = '';
+    scroll.appendChild(emptyStateEl('No messages yet', 'Send a message to begin. Try asking for a knowledge graph — e.g. "Explain neural networks and include a ```graph block."', iconChat()));
+    return;
+  }
+  scroll.innerHTML = msgs.map(m=> messageHTML(m)).join('');
+  bindMessageActions();
+  scroll.scrollTop = scroll.scrollHeight;
+}
+function emptyStateEl(title, desc, iconSvg){
+  const div = document.createElement('div'); div.className='empty-state';
+  div.innerHTML = `${iconSvg}<h3>${esc(title)}</h3><p>${esc(desc)}</p>`;
+  return div;
+}
+function iconChat(){ return `<svg class="es-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>`; }
+
+function messageHTML(m){
+  const roleLabel = m.role === 'user' ? 'You' : (m.demo ? 'Oblivion (sample)' : 'Oblivion');
+  const bodyHtml = m.role === 'user'
+    ? `<div class="user-bubble">${esc(m.content).replace(/\n/g,'<br>')}</div>`
+    : `<div class="msg-body">${renderMarkdown(m.content)}</div>
+       <div class="msg-actions">
+         <button class="btn sm gen-graph-btn" data-id="${m.id}">Generate Graph</button>
+         <button class="btn sm copy-msg-btn" data-id="${m.id}">Copy</button>
+         ${m.graphIssues && m.graphIssues.length ? `<span class="note" title="${esc(m.graphIssues.join(' | '))}">${m.graphIssues.length} graph issue(s)</span>`:''}
+       </div>`;
+  return `<div class="msg-row" data-mid="${m.id}">
+    <div class="msg-role ${m.demo?'demo':''}">${esc(roleLabel)}</div>
+    ${bodyHtml}
+  </div>`;
+}
+function bindMessageActions(){
+  $$('.copy-code-btn').forEach(b=> b.addEventListener('click', ()=>{
+    const el = document.getElementById(b.getAttribute('data-target'));
+    if(el) navigator.clipboard.writeText(el.textContent).then(()=>toast('Code copied'));
+  }));
+  $$('.copy-msg-btn').forEach(b=> b.addEventListener('click', ()=>{
+    const m = state.messages.find(x=>x.id===b.getAttribute('data-id'));
+    if(m) navigator.clipboard.writeText(m.content).then(()=>toast('Message copied'));
+  }));
+  $$('.gen-graph-btn').forEach(b=> b.addEventListener('click', ()=> generateGraphFromMessage(b.getAttribute('data-id'))));
+}
+
+function generateGraphFromMessage(messageId){
+  const m = state.messages.find(x=>x.id===messageId);
+  if(!m) return;
+  const raw = extractGraphPayload(m.content);
+  if(!raw){ toast('No ```graph block found in this message. Ask the assistant to include one.', 'err'); return; }
+  const {nodes, edges, issues} = sanitizeGraph(raw);
+  m.graphIssues = issues;
+  if(!nodes.length){ toast('Graph data was invalid or empty: '+(issues[0]||''), 'err'); renderChat(); return; }
+  const graph = {id: uid('graph'), name: 'Graph from message', nodes, edges};
+  switchTab('graph');
+  graphRenderer.loadGraph(graph);
+  if(issues.length) toast(issues.length+' item(s) skipped during graph validation. See console for details.', 'err');
+  if(issues.length) console.warn('Graph validation issues:', issues);
+  renderChat();
+}
+
+/* ----- Sending messages ----- */
+async function sendChatMessage(){
+  const input = $('#chatInput');
+  const text = input.value.trim();
+  if(!text) return;
+  if(!state.currentConversationId){ await createConversation(true); }
+  const userMsg = { id: uid('msg'), conversationId: state.currentConversationId, role:'user', content:text, ts: Date.now() };
+  state.messages.push(userMsg); await idb.put('messages', userMsg);
+  input.value=''; autoGrow(input);
+  renderChat();
+
+  const adapter = Providers[state.provider];
+  const assistantMsg = { id: uid('msg'), conversationId: state.currentConversationId, role:'assistant', content:'', ts: Date.now()+1, demo:false };
+  state.messages.push(assistantMsg); renderChat();
+
+  const history = currentMessages().filter(m=>m.id!==assistantMsg.id).map(m=>({role:m.role, content:m.content}));
+  setStreaming(true);
+  try{
+    const req = adapter.sendChat(history, {
+      model: state.model, temperature: state.settings.temperature, maxTokens: state.settings.maxTokens,
+      topP: state.settings.topP, stream: state.settings.stream,
+      onToken: (chunk)=>{ assistantMsg.content += chunk; updateStreamingMessage(assistantMsg); }
+    });
+    state.pendingRequest = req;
+    const finalText = await req.done;
+    if(!state.settings.stream) assistantMsg.content = finalText || assistantMsg.content;
+    if(!assistantMsg.content) assistantMsg.content = finalText || '*(empty response)*';
+    await idb.put('messages', assistantMsg);
+  }catch(err){
+    assistantMsg.content = `**Error:** ${esc(err.message)}`;
+    toast(err.message, 'err');
+  }finally{
+    setStreaming(false); state.pendingRequest = null; renderChat();
+  }
+}
+function updateStreamingMessage(msg){
+  const row = document.querySelector(`.msg-row[data-mid="${msg.id}"] .msg-body`);
+  if(row) row.innerHTML = renderMarkdown(msg.content);
+  const scroll = $('#chatScroll'); scroll.scrollTop = scroll.scrollHeight;
+}
+function setStreaming(on){
+  $('#stopBtn').style.display = on ? 'inline-flex' : 'none';
+  $('#sendBtn').disabled = on;
+}
+function autoGrow(el){ el.style.height='auto'; el.style.height=Math.min(el.scrollHeight,180)+'px'; }
+
+async function createConversation(silent){
+  if(!state.currentProjectId){
+    if(!state.projects.length){ await createProject('My First Project', true); }
+    else state.currentProjectId = state.projects[0].id;
+  }
+  const conv = { id: uid('conv'), projectId: state.currentProjectId, title: 'New conversation', ts: Date.now() };
+  state.conversations.push(conv); await idb.put('conversations', conv);
+  state.currentConversationId = conv.id;
+  renderConversations(); if(!silent) renderChat();
+  return conv;
+}
+async function createProject(name, silent){
+  const proj = { id: uid('proj'), name: (name||'Untitled Project').slice(0,60), ts: Date.now() };
+  state.projects.push(proj); await idb.put('projects', proj);
+  state.currentProjectId = proj.id;
+  renderProjects(); if(!silent) renderConversations();
+  return proj;
+}
+
+/* ---------------------------- 7. INSPECTOR ---------------------------- */
+function renderInspectorSelection(sel){
+  const el = $('#inspDetails');
+  if(!sel){ el.innerHTML = '<div class="empty-state" style="padding:20px 6px;"><p>Select a graph node or edge to inspect.</p></div>'; return; }
+  if(sel.kind === 'node'){
+    const n = sel.data;
+    el.innerHTML = `
+      <div class="field-label">Label</div><input class="ti" id="inspLabel" value="${esc(n.label)}">
+      <div class="field-label">Type</div><input class="ti" id="inspType" value="${esc(n.type)}">
+      <div class="field-label">Description</div><textarea class="ta" id="inspDesc">${esc(n.description||'')}</textarea>
+      ${n.confidence!=null?`<div class="field-label">Confidence</div><div class="note">${(n.confidence*100).toFixed(0)}%</div>`:''}
+      <div class="field-label">Connections</div><div class="note">${graphRenderer.edges.filter(e=>e.source===n.id||e.target===n.id).length} edge(s)</div>
+      <div style="margin-top:14px;display:flex;gap:8px;">
+        <button class="btn sm" id="inspApply">Apply</button>
+        <button class="btn sm" id="inspDelete" style="color:var(--danger);border-color:var(--danger);">Delete node</button>
+      </div>`;
+    $('#inspApply').addEventListener('click', ()=>{
+      n.label = $('#inspLabel').value.slice(0,80)||n.label;
+      n.type = $('#inspType').value.slice(0,30)||n.type;
+      n.description = $('#inspDesc').value.slice(0,600);
+      graphRenderer.render(); graphRenderer.updateLegend(); toast('Node updated');
+    });
+    $('#inspDelete').addEventListener('click', ()=> graphRenderer.deleteSelected());
+  } else {
+    const e = sel.data;
+    el.innerHTML = `
+      <div class="field-label">Relationship</div><input class="ti" id="inspEdgeLabel" value="${esc(e.label)}">
+      <div class="field-label">Direction</div><div class="note">${e.source} → ${e.target} ${e.directed?'(directed)':'(undirected)'}</div>
+      <div style="margin-top:14px;display:flex;gap:8px;">
+        <button class="btn sm" id="inspEdgeApply">Apply</button>
+        <button class="btn sm" id="inspEdgeDelete" style="color:var(--danger);border-color:var(--danger);">Delete edge</button>
+      </div>`;
+    $('#inspEdgeApply').addEventListener('click', ()=>{ e.label = $('#inspEdgeLabel').value.slice(0,60)||e.label; graphRenderer.render(); toast('Edge updated'); });
+    $('#inspEdgeDelete').addEventListener('click', ()=> graphRenderer.deleteSelected());
+  }
+}
+function renderInspectorModel(){
+  const el = $('#inspModel');
+  const p = state.provider;
+  const cfg = p==='gemini' ? loadLS('obf_gemini_cfg',{}) : loadLS('obf_lm_cfg',{});
+  el.innerHTML = `
+    <div class="field-label">Active Provider</div><div>${p==='gemini'?'Google Gemini':'LM Studio (local)'}</div>
+    <div class="field-label">Model</div><div>${esc(state.model||'—')}</div>
+    <div class="field-label">Config</div><div class="note">${p==='gemini' ? ('Endpoint: '+esc(cfg.endpoint||'not set')) : ('Base URL: '+esc(cfg.baseUrl||''))}</div>
+    <div class="field-label">Generation</div><div class="note">temp ${state.settings.temperature} · max_tokens ${state.settings.maxTokens} · top_p ${state.settings.topP} · streaming ${state.settings.stream?'on':'off'}</div>
+    <div style="margin-top:14px;"><button class="btn sm" id="inspTestConn">Test connection</button></div>
+    <div class="note" id="inspTestResult" style="margin-top:8px;"></div>`;
+  $('#inspTestConn').addEventListener('click', async ()=>{
+    $('#inspTestResult').textContent = 'Testing…';
+    const r = await Providers[p].testConnection();
+    $('#inspTestResult').textContent = r.message;
+    updateProviderStatusPill(r.ok);
+  });
+}
+function renderInspectorArtifacts(){
+  const el = $('#inspArtifacts');
+  if(!state.artifacts.length){ el.innerHTML = '<div class="empty-state" style="padding:20px 6px;"><p>Generated code, notes and exports will appear here.</p></div>'; return; }
+  el.innerHTML = state.artifacts.slice().reverse().map(a=>`
+    <div class="artifact-item">
+      <div class="ai-name">${esc(a.name)}</div>
+      <div class="ai-meta">${esc(a.type)} · ${fmtTime(a.ts)}</div>
+      <button class="btn sm dl-artifact" data-id="${a.id}">Download</button>
+    </div>`).join('');
+  $$('.dl-artifact', el).forEach(b=> b.addEventListener('click', ()=>{
+    const a = state.artifacts.find(x=>x.id===b.getAttribute('data-id'));
+    if(a) downloadBlob(a.name, a.content, 'text/plain');
+  }));
+}
+async function addArtifact(name, type, content){
+  const a = {id: uid('art'), name, type, content, ts: Date.now(), projectId: state.currentProjectId};
+  state.artifacts.push(a); await idb.put('artifacts', a); renderInspectorArtifacts();
+}
+
+/* ---------------------------- 8. SETTINGS / PROVIDER UI / PWA / SHORTCUTS ---------------------------- */
+function updateProviderStatusPill(ok){
+  const dot = $('#providerStatusDot'), text = $('#providerStatusText');
+  dot.className = 'status-dot ' + (ok===true?'ok':ok===false?'bad':'warn');
+  text.textContent = ok===true?'Connected':ok===false?'Disconnected':'Unknown';
+}
+async function refreshModelList(){
+  const sel = $('#modelSelect');
+  const adapter = Providers[state.provider];
+  sel.innerHTML = '<option>Loading…</option>';
+  try{
+    const models = await adapter.listModels();
+    if(!models.length){ sel.innerHTML = '<option value="">No models found</option>'; return; }
+    sel.innerHTML = models.map(m=>`<option value="${esc(m.id)}" ${m.demo?'data-demo="1"':''}>${esc(m.label)}${m.demo?' (placeholder)':''}</option>`).join('');
+    state.model = models[0].id; sel.value = state.model;
+  }catch(e){
+    sel.innerHTML = '<option value="">Unavailable</option>';
+    toast('Could not load models: '+e.message, 'err');
+  }
+  $('#activeProviderLabel').textContent = `Provider: ${state.provider==='gemini'?'Google Gemini':'LM Studio'} ${state.model?('· '+state.model):''}`;
+}
+
+function openSettings(){
+  $('#geminiEndpoint').value = (loadLS('obf_gemini_cfg',{}).endpoint)||'';
+  $('#geminiKey').value = (loadLS('obf_gemini_cfg',{}).apiKey)||'';
+  $('#lmBaseUrl').value = (loadLS('obf_lm_cfg',{}).baseUrl)||'http://127.0.0.1:1234/v1';
+  $('#genTemp').value = state.settings.temperature; $('#genMaxTokens').value = state.settings.maxTokens;
+  $('#genTopP').value = state.settings.topP; $('#genStream').checked = state.settings.stream;
+  $$('#themeSeg button').forEach(b=> b.classList.toggle('active', b.getAttribute('data-theme')===state.theme));
+  $('#settingsModal').classList.remove('hidden');
+}
+function closeSettings(){ $('#settingsModal').classList.add('hidden'); }
+
+function applySettingsFromForm(){
+  saveLS('obf_gemini_cfg', {endpoint: $('#geminiEndpoint').value.trim(), apiKey: $('#geminiKey').value.trim()});
+  saveLS('obf_lm_cfg', {baseUrl: $('#lmBaseUrl').value.trim() || 'http://127.0.0.1:1234/v1'});
+  Providers.gemini.cfg = loadLS('obf_gemini_cfg',{});
+  Providers.lmstudio.cfg = loadLS('obf_lm_cfg',{});
+  state.settings.temperature = parseFloat($('#genTemp').value)||0.7;
+  state.settings.maxTokens = parseInt($('#genMaxTokens').value)||1024;
+  state.settings.topP = parseFloat($('#genTopP').value)||1;
+  state.settings.stream = $('#genStream').checked;
+  persistSettings();
+}
+
+function setTheme(t){
+  state.theme = t;
+  document.documentElement.setAttribute('data-theme', t);
+  $('#themeColorMeta').setAttribute('content', t==='dark' ? '#1B1917' : '#D97757');
+  saveLS('obf_theme', t);
+  persistSettings();
+}
+
+function switchTab(tab){
+  state.activeTab = tab;
+  $$('.tab-btn').forEach(b=> b.classList.toggle('active', b.getAttribute('data-tab')===tab));
+  $$('.view').forEach(v=> v.classList.toggle('active', v.id === 'view-'+tab));
+  if(tab==='graph' && graphRenderer) setTimeout(()=>graphRenderer.fitToScreen(), 30);
+}
+
+/* ---- PWA / Install ---- */
+let deferredInstallPrompt = null;
+function setupManifestAndIcons(){
+  const svgIcon = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' rx='10' fill='%23D97757'/><circle cx='24' cy='24' r='9' fill='%23FBF8F2'/><path d='M24 6 L24 42 M8 15 L40 33 M8 33 L40 15' stroke='%23FBF8F2' stroke-width='1.5' opacity='0.5'/></svg>`;
+  const dataUri = 'data:image/svg+xml,' + svgIcon;
+  $('#faviconLink').setAttribute('href', dataUri);
+  const manifest = {
+    name: 'Oblivion Forge', short_name: 'Oblivion Forge',
+    description: 'AI research & engineering workspace with knowledge graph exploration.',
+    start_url: location.href.split('#')[0], scope: location.href.split('#')[0],
+    display: 'standalone', background_color: '#F6F1E8', theme_color: '#D97757',
+    icons: [ {src: dataUri, sizes:'48x48', type:'image/svg+xml', purpose:'any'}, {src: dataUri, sizes:'192x192', type:'image/svg+xml', purpose:'any'} ]
+  };
+  const blob = new Blob([JSON.stringify(manifest)], {type:'application/json'});
+  $('#manifestLink').setAttribute('href', URL.createObjectURL(blob));
+}
+function setupInstallFlow(){
+  window.addEventListener('beforeinstallprompt', (e)=>{
+    e.preventDefault(); deferredInstallPrompt = e;
+    $('#installBtn').style.display = 'flex';
+    $('#installNote').textContent = 'This browser supports direct installation. Click "Install Oblivion Forge" in the sidebar.';
+  });
+  $('#installBtn').addEventListener('click', async ()=>{
+    if(!deferredInstallPrompt){ toast('Install prompt unavailable — see Settings for manual steps.'); return; }
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null; $('#installBtn').style.display = 'none';
+  });
+  window.addEventListener('appinstalled', ()=> toast('Oblivion Forge installed', 'ok'));
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  if(isStandalone){ $('#installNote').textContent = 'Already running as an installed app.'; }
+  else if(isIOS){ $('#installNote').textContent = 'On iOS Safari: tap Share, then "Add to Home Screen". Automatic install prompts are not available on iOS.'; }
+  else { setTimeout(()=>{ if(!deferredInstallPrompt) $('#installNote').textContent = 'Automatic install prompt not detected yet. Some browsers require HTTPS hosting and revisits before offering installation. As a single HTML file this app has limited offline caching — a full service-worker cache requires serving from a real origin.'; }, 1500); }
+  // Best-effort service worker registration from a Blob (works in some Chromium browsers; silently ignored where unsupported).
+  if('serviceWorker' in navigator){
+    try{
+      const swCode = `self.addEventListener('install', e => self.skipWaiting());
+        self.addEventListener('activate', e => self.clients.claim());
+        self.addEventListener('fetch', e => {});`;
+      const swBlob = new Blob([swCode], {type:'application/javascript'});
+      const swUrl = URL.createObjectURL(swBlob);
+      navigator.serviceWorker.register(swUrl).catch(()=>{ /* not supported in this browser for blob: scripts — documented limitation */ });
+    }catch(e){ /* ignore */ }
+  }
+}
+
+/* ---- Keyboard shortcuts ---- */
+function setupShortcuts(){
+  window.addEventListener('keydown', (e)=>{
+    const mod = e.ctrlKey || e.metaKey;
+    if(mod && e.key.toLowerCase()==='b'){ e.preventDefault(); toggleSidebar(); }
+    if(mod && e.key===','){ e.preventDefault(); openSettings(); }
+    if(mod && e.shiftKey && e.key.toLowerCase()==='l'){ e.preventDefault(); setTheme(state.theme==='light'?'dark':'light'); }
+    if(mod && e.key.toLowerCase()==='n'){ e.preventDefault(); createConversation(false); }
+    if(e.key==='Escape'){ closeSettings(); $('#confirmModal').classList.add('hidden'); }
+  });
+}
+function toggleSidebar(){
+  state.sidebarCollapsed = !state.sidebarCollapsed;
+  $('#sidebar').classList.toggle('collapsed', state.sidebarCollapsed);
+  $('#expandSidebarBtn').style.display = state.sidebarCollapsed ? 'inline-flex' : 'none';
+  persistSettings();
+}
+function toggleInspector(){
+  state.inspectorCollapsed = !state.inspectorCollapsed;
+  $('#inspector').classList.toggle('collapsed', state.inspectorCollapsed);
+  persistSettings();
+}
+
+/* ---------------------------- 9. SAMPLE DATA ---------------------------- */
+const SAMPLE_GRAPH = {
+  id:'sample_graph_1', name:'Sample Knowledge Graph — Transformer Architecture',
+  nodes:[
+    {id:'transformer', label:'Transformer', type:'concept', description:'Neural network architecture based on self-attention, introduced in "Attention Is All You Need".'},
+    {id:'attention', label:'Self-Attention', type:'concept', description:'Mechanism allowing tokens to weigh the relevance of other tokens.'},
+    {id:'encoder', label:'Encoder', type:'entity', description:'Stack of layers that maps input tokens to contextual representations.'},
+    {id:'decoder', label:'Decoder', type:'entity', description:'Stack of layers that generates output tokens autoregressively.'},
+    {id:'embeddings', label:'Token Embeddings', type:'entity', description:'Dense vector representations of input tokens.'},
+    {id:'positional', label:'Positional Encoding', type:'concept', description:'Injects sequence order information into embeddings.'},
+    {id:'vaswani', label:'Vaswani et al. 2017', type:'source', description:'Original paper proposing the Transformer.'},
+    {id:'gpt', label:'GPT family', type:'code', description:'Decoder-only transformer language models.'},
+    {id:'bert', label:'BERT', type:'code', description:'Encoder-only transformer for bidirectional representations.'}
+  ],
+  edges:[
+    {source:'transformer', target:'attention', label:'relies on', directed:true},
+    {source:'transformer', target:'encoder', label:'contains', directed:true},
+    {source:'transformer', target:'decoder', label:'contains', directed:true},
+    {source:'encoder', target:'embeddings', label:'consumes', directed:true},
+    {source:'embeddings', target:'positional', label:'combined with', directed:true},
+    {source:'transformer', target:'vaswani', label:'introduced by', directed:true},
+    {source:'gpt', target:'decoder', label:'based on', directed:true},
+    {source:'bert', target:'encoder', label:'based on', directed:true}
+  ]
+};
+const SAMPLE_ASSISTANT_CONTENT = `Here's a concise overview of the **Transformer** architecture.
+
+The Transformer relies on self-attention instead of recurrence, enabling parallel training and strong long-range dependency modeling. It splits into an **encoder** (bidirectional context) and a **decoder** (autoregressive generation), each built from stacked attention + feed-forward blocks.
+
+\`\`\`graph
+${JSON.stringify(SAMPLE_GRAPH, null, 0)}
+\`\`\`
+
+This is sample/demo content bundled with Oblivion Forge to illustrate the graph workflow — it is not live model output.`;
+
+async function seedSampleDataIfEmpty(){
+  if(state.projects.length) return;
+  const proj = await createProject('Welcome to Oblivion Forge', true);
+  const conv = { id: uid('conv'), projectId: proj.id, title:'Sample: Transformers explained', ts: Date.now() };
+  state.conversations.push(conv); await idb.put('conversations', conv);
+  state.currentConversationId = conv.id;
+  const userMsg = {id: uid('msg'), conversationId: conv.id, role:'user', content:'Explain the Transformer architecture and show a knowledge graph.', ts: Date.now()-2000};
+  const aiMsg = {id: uid('msg'), conversationId: conv.id, role:'assistant', content: SAMPLE_ASSISTANT_CONTENT, ts: Date.now()-1000, demo:true};
+  state.messages.push(userMsg, aiMsg);
+  await idb.put('messages', userMsg); await idb.put('messages', aiMsg);
+  const graph = Object.assign({}, SAMPLE_GRAPH, {projectId: proj.id});
+  state.graphs.push(graph); await idb.put('graphs', graph);
+  renderProjects(); renderConversations(); renderGraphList();
+}
+
+/* ---------------------------- 10. EXPORT / IMPORT ---------------------------- */
+async function exportWorkspace(){
+  const dump = { exportedAt: new Date().toISOString(), projects: state.projects, conversations: state.conversations,
+    messages: state.messages, graphs: state.graphs, artifacts: state.artifacts, settings: state.settings };
+  downloadBlob('oblivion-forge-workspace.json', JSON.stringify(dump, null, 2), 'application/json');
+}
+function importWorkspaceFile(file){
+  const reader = new FileReader();
+  reader.onload = async ()=>{
+    try{
+      const data = JSON.parse(reader.result);
+      if(typeof data !== 'object' || data===null) throw new Error('Invalid file format');
+      const ok = await confirmDialog('Import workspace', 'This merges projects, conversations, graphs and artifacts from the file into your current workspace.');
+      if(!ok) return;
+      for(const key of ['projects','conversations','messages','graphs','artifacts']){
+        if(Array.isArray(data[key])){
+          for(const item of data[key]){
+            if(item && item.id){ state[key].push(item); await idb.put(key, item); }
+          }
+        }
+      }
+      renderProjects(); renderConversations(); renderGraphList(); renderInspectorArtifacts();
+      toast('Workspace imported', 'ok');
+    }catch(e){ toast('Import failed: '+e.message, 'err'); }
+  };
+  reader.readAsText(file);
+}
+
+/* ---------------------------- 11. WIRING / INIT ---------------------------- */
+function wireUI(){
+  $('#collapseSidebarBtn').addEventListener('click', toggleSidebar);
+  $('#expandSidebarBtn').addEventListener('click', toggleSidebar);
+  $('#mobileSidebarToggle').addEventListener('click', ()=>{
+    $('#sidebar').classList.toggle('collapsed');
+    $('#mobileScrim').classList.toggle('show', !$('#sidebar').classList.contains('collapsed'));
+  });
+  $('#mobileScrim').addEventListener('click', ()=>{ $('#sidebar').classList.add('collapsed'); $('#mobileScrim').classList.remove('show'); });
+  $('#toggleInspectorBtn').addEventListener('click', toggleInspector);
+  $('#newProjectBtn').addEventListener('click', async ()=>{ const name = prompt('Project name:', 'New Project'); if(name) await createProject(name); });
+  $('#newConvBtn').addEventListener('click', ()=> createConversation(false));
+
+  $$('.tab-btn').forEach(b=> b.addEventListener('click', ()=> switchTab(b.getAttribute('data-tab'))));
+  $$('.insp-tab').forEach(t=> t.addEventListener('click', ()=>{
+    $$('.insp-tab').forEach(x=>x.classList.remove('active')); t.classList.add('active');
+    $('#inspDetails').classList.toggle('hidden', t.getAttribute('data-itab')!=='details');
+    $('#inspModel').classList.toggle('hidden', t.getAttribute('data-itab')!=='model');
+    $('#inspArtifacts').classList.toggle('hidden', t.getAttribute('data-itab')!=='artifacts');
+    if(t.getAttribute('data-itab')==='model') renderInspectorModel();
+    if(t.getAttribute('data-itab')==='artifacts') renderInspectorArtifacts();
+  }));
+
+  $('#providerSelect').addEventListener('change', async (e)=>{ state.provider = e.target.value; await refreshModelList(); persistSettings(); updateProviderStatusPill(null); });
+  $('#modelSelect').addEventListener('change', (e)=>{ state.model = e.target.value; persistSettings(); $('#activeProviderLabel').textContent = `Provider: ${state.provider==='gemini'?'Google Gemini':'LM Studio'} · ${state.model}`; });
+
+  $('#themeToggleBtn').addEventListener('click', ()=> setTheme(state.theme==='light'?'dark':'light'));
+  $('#openSettingsBtn').addEventListener('click', openSettings);
+  $('#closeSettingsBtn').addEventListener('click', closeSettings);
+  $('#closeSettingsBtn2').addEventListener('click', ()=>{ applySettingsFromForm(); closeSettings(); refreshModelList(); });
+  $$('#themeSeg button').forEach(b=> b.addEventListener('click', ()=> setTheme(b.getAttribute('data-theme'))));
+  $('#testLmBtn').addEventListener('click', async ()=>{
+    saveLS('obf_lm_cfg', {baseUrl: $('#lmBaseUrl').value.trim()||'http://127.0.0.1:1234/v1'});
+    Providers.lmstudio.cfg = loadLS('obf_lm_cfg',{});
+    $('#lmTestResult').textContent = 'Testing…';
+    const r = await Providers.lmstudio.testConnection();
+    $('#lmTestResult').textContent = r.message;
+    if(state.provider==='lmstudio') updateProviderStatusPill(r.ok);
+  });
+  $('#exportAllBtn').addEventListener('click', exportWorkspace);
+  $('#importAllBtn').addEventListener('click', ()=> $('#importFileInput').click());
+  $('#importFileInput').addEventListener('change', (e)=>{ if(e.target.files[0]) importWorkspaceFile(e.target.files[0]); e.target.value=''; });
+  $('#clearAllBtn').addEventListener('click', async ()=>{
+    const ok = await confirmDialog('Clear all data', 'This permanently deletes all projects, conversations, graphs and artifacts stored locally.');
+    if(!ok) return;
+    for(const s of STORES) await idb.clear(s);
+    try{ localStorage.clear(); }catch(e){}
+    location.reload();
+  });
+
+  // Chat
+  $('#chatInput').addEventListener('input', (e)=> autoGrow(e.target));
+  $('#chatInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendChatMessage(); } });
+  $('#sendBtn').addEventListener('click', sendChatMessage);
+  $('#stopBtn').addEventListener('click', ()=>{ if(state.pendingRequest) state.pendingRequest.abort(); setStreaming(false); toast('Request cancelled'); });
+
+  // Research
+  $('#saveNotesBtn').addEventListener('click', async ()=>{
+    await addArtifact('research-notes.md', 'research-note', $('#researchNotes').value);
+    toast('Notes saved to Artifacts', 'ok');
+  });
+  $('#exportNotesBtn').addEventListener('click', ()=> downloadBlob('oblivion-forge-notes.md', $('#researchNotes').value, 'text/markdown'));
+
+  // Code
+  $('#copyCodeBtn').addEventListener('click', ()=> navigator.clipboard.writeText($('#codeEditor').value).then(()=>toast('Code copied')));
+  $('#downloadCodeBtn').addEventListener('click', ()=>{
+    const ext = {javascript:'js',python:'py',typescript:'ts',html:'html',css:'css',json:'json',bash:'sh'}[$('#codeLangSelect').value]||'txt';
+    downloadBlob('snippet.'+ext, $('#codeEditor').value, 'text/plain');
+  });
+  $('#explainCodeBtn').addEventListener('click', async ()=>{
+    const code = $('#codeEditor').value.trim();
+    if(!code){ toast('Nothing to explain — write or paste code first.'); return; }
+    if(!state.currentConversationId) await createConversation(true);
+    switchTab('chat');
+    $('#chatInput').value = `Please explain what this ${$('#codeLangSelect').value} code does:\n\n\`\`\`${$('#codeLangSelect').value}\n${code}\n\`\`\``;
+    autoGrow($('#chatInput'));
+    toast('Code inserted into chat — press Send to run through the AI provider.');
+  });
+
+  // Graph toolbar
+  $('#zoomInBtn').addEventListener('click', ()=>{ graphRenderer.scale = Math.min(4, graphRenderer.scale*1.2); graphRenderer.applyTransform(); });
+  $('#zoomOutBtn').addEventListener('click', ()=>{ graphRenderer.scale = Math.max(0.15, graphRenderer.scale*0.8); graphRenderer.applyTransform(); });
+  $('#fitBtn').addEventListener('click', ()=> graphRenderer.fitToScreen());
+  $('#resetLayoutBtn').addEventListener('click', ()=>{ if(graphRenderer.graphMeta) graphRenderer.loadGraph(graphRenderer.toJSON()); });
+  $('#livePhysicsChk').addEventListener('change', (e)=> graphRenderer.setLivePhysics(e.target.checked));
+  $('#graphSearch').addEventListener('input', (e)=>{ graphRenderer.searchTerm = e.target.value; graphRenderer.render(); });
+  $('#newGraphBtn').addEventListener('click', ()=>{
+    const name = prompt('New graph name:', 'Untitled Graph') || 'Untitled Graph';
+    graphRenderer.loadGraph({id: uid('graph'), name, nodes:[{id:uid('n'), label:'Start here', type:'concept', description:'Double-click the canvas to add more nodes.'}], edges:[]});
+    toast('New graph created — double-click canvas to add nodes.');
+  });
+  $('#sampleGraphBtn').addEventListener('click', ()=>{ graphRenderer.loadGraph(SAMPLE_GRAPH); toast('Sample graph loaded'); });
+  $('#exportSvgBtn').addEventListener('click', ()=>{
+    if(!graphRenderer.nodes.length){ toast('Nothing to export'); return; }
+    downloadBlob((graphRenderer.graphMeta?graphRenderer.graphMeta.name:'graph')+'.svg', graphRenderer.toSVGString(), 'image/svg+xml');
+  });
+  $('#exportPngBtn').addEventListener('click', ()=>{
+    if(!graphRenderer.nodes.length){ toast('Nothing to export'); return; }
+    const svgStr = graphRenderer.toSVGString();
+    const img = new Image();
+    const svg64 = btoa(unescape(encodeURIComponent(svgStr)));
+    img.onload = ()=>{
+      const canvas = document.createElement('canvas');
+      canvas.width = graphRenderer.svg.clientWidth*2; canvas.height = graphRenderer.svg.clientHeight*2;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#fff';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(img,0,0,canvas.width,canvas.height);
+      canvas.toBlob(blob=> downloadBlob((graphRenderer.graphMeta?graphRenderer.graphMeta.name:'graph')+'.png', blob));
+    };
+    img.onerror = ()=> toast('PNG export failed to render SVG', 'err');
+    img.src = 'data:image/svg+xml;base64,'+svg64;
+  });
+  $('#exportJsonBtn').addEventListener('click', ()=>{
+    if(!graphRenderer.nodes.length){ toast('Nothing to export'); return; }
+    downloadBlob((graphRenderer.graphMeta?graphRenderer.graphMeta.name:'graph')+'.json', JSON.stringify(graphRenderer.toJSON(), null, 2), 'application/json');
+  });
+  $('#saveGraphBtn').addEventListener('click', async ()=>{
+    if(!graphRenderer.nodes.length){ toast('Nothing to save'); return; }
+    const data = graphRenderer.toJSON();
+    data.projectId = state.currentProjectId;
+    const existingIdx = state.graphs.findIndex(g=>g.id===data.id);
+    if(existingIdx>=0) state.graphs[existingIdx]=data; else state.graphs.push(data);
+    await idb.put('graphs', data);
+    renderGraphList();
+    toast('Graph saved to sidebar', 'ok');
+  });
+
+  window.addEventListener('resize', ()=>{ if(graphRenderer && state.activeTab==='graph') graphRenderer.applyTransform(); });
+}
+
+async function loadFromDB(){
+  const [projects, conversations, messages, graphs, artifacts, settings] = await Promise.all([
+    idb.getAll('projects'), idb.getAll('conversations'), idb.getAll('messages'), idb.getAll('graphs'), idb.getAll('artifacts'), idb.get('settings','main')
+  ]);
+  state.projects = projects; state.conversations = conversations; state.messages = messages; state.graphs = graphs; state.artifacts = artifacts;
+  if(settings){
+    state.provider = settings.provider || state.provider;
+    state.model = settings.model || '';
+    state.theme = settings.theme || loadLS('obf_theme','light');
+    state.settings = Object.assign(state.settings, settings.settings||{});
+    state.sidebarCollapsed = !!settings.sidebarCollapsed;
+    state.inspectorCollapsed = !!settings.inspectorCollapsed;
+  } else {
+    state.theme = loadLS('obf_theme','light');
+  }
+  if(state.projects.length){ state.currentProjectId = state.projects[0].id; }
+}
+
+async function init(){
+  setupManifestAndIcons();
+  wireUI();
+  setupShortcuts();
+  await loadFromDB();
+  await seedSampleDataIfEmpty();
+
+  setTheme(state.theme);
+  $('#providerSelect').value = state.provider;
+  $('#sidebar').classList.toggle('collapsed', state.sidebarCollapsed);
+  $('#expandSidebarBtn').style.display = state.sidebarCollapsed ? 'inline-flex' : 'none';
+  $('#inspector').classList.toggle('collapsed', state.inspectorCollapsed);
+
+  renderProjects(); renderConversations(); renderGraphList(); renderChat();
+
+  graphRenderer = new GraphRenderer($('#graphSvg'), $('#graphViewport'));
+  graphRenderer.loadGraph(SAMPLE_GRAPH);
+
+  await refreshModelList();
+  updateProviderStatusPill(null);
+  setupInstallFlow();
+
+  // Quietly test LM Studio connectivity on boot if selected (non-blocking, honest status only)
+  if(state.provider==='lmstudio'){
+    Providers.lmstudio.testConnection().then(r=> updateProviderStatusPill(r.ok)).catch(()=> updateProviderStatusPill(false));
+  }
+}
+
+window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('beforeunload', ()=>{ /* data already persisted incrementally via IndexedDB on each write */ });
 </script>
 </body>
 </html>
+
